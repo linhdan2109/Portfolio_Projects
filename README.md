@@ -14,4 +14,4 @@ Biến độc lập:
   
 3. Nguồn dữ liệu: Sử dụng 1388 quan sát về cân nặng của trẻ sơ sinh trong bộ dữ liệu BWGHT trong thư viện wooldridge.
 (Bộ dữ liệu trên được giáo sư J. Mullahy (1997) cung cấp trong Tạp chí Kinh tế và Thống kê 79, 596-593. 
- Ông có được chúng từ cuộc Điều tra Phỏng vấn Y tế Quốc gia năm 1988. )
+ Ông có được chúng từ cuộc Điều tra Phỏng vấn Y tế Quốc gia năm 1988)

@@ -9,7 +9,7 @@ b. Biến độc lập:
   faminc: Thu nhập của gia đình (Nghìn đô la)
   male: Giới tính của trẻ ( =1 nếu là nam; = 0 nếu là nữ ) - Biến định tính
   cigs: Số điếu thuốc người mẹ hút hàng ngày trong thời gian mang thai (điếu/1 ngày)
-  cigtax: Thuế của một gói thuốc lá (cents/1 gói)
+  cigtax: Thuế của một gói thuốc lá (cents/1 gói) 
   cigprice: Giá của một gói thuốc lá (cents/1 gói)
   
 3. Nguồn dữ liệu: Sử dụng 1388 quan sát về cân nặng của trẻ sơ sinh trong bộ dữ liệu BWGHT trong thư viện wooldridge.

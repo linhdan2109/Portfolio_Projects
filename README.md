@@ -1,4 +1,4 @@
-# Bài tập nhóm môn Kinh Tế Lượng
+# Bài tập môn Kinh Tế Lượng
 
 1. Vấn đề nghiên cứu: nghiên cứu mối liên hệ giữa cân nặng của em bé mới sinh với việc hút thuốc lá của người mẹ, thu nhập của gia đình và giới tính của đứa bé. 
 

@@ -3,9 +3,9 @@
 1. Vấn đề nghiên cứu: nghiên cứu mối liên hệ giữa cân nặng của em bé mới sinh với việc hút thuốc lá của người mẹ, thu nhập của gia đình và giới tính của đứa bé. 
 
 2. Giới thiệu các biến:
-Biến phụ thuộc: 
+a. Biến phụ thuộc: 
   bwght: Cân nặng của trẻ sơ sinh (ounces)
-Biến độc lập:
+b. Biến độc lập:
   faminc: Thu nhập của gia đình (Nghìn đô la)
   male: Giới tính của trẻ ( =1 nếu là nam; = 0 nếu là nữ ) - Biến định tính
   cigs: Số điếu thuốc người mẹ hút hàng ngày trong thời gian mang thai (điếu/1 ngày)

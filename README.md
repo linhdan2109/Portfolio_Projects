@@ -4,8 +4,8 @@
 
 2. Giới thiệu các biến:
 
-      a. Biến phụ thuộc: bwght: 
-    - Cân nặng của trẻ sơ sinh (ounces)
+      a. Biến phụ thuộc: 
+    - bwght: Cân nặng của trẻ sơ sinh (ounces)
 
      b. Biến độc lập:
     - faminc: Thu nhập của gia đình (Nghìn đô la)

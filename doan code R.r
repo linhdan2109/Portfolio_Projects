@@ -1,5 +1,5 @@
 # B3: Xác định dạng hàm hồi quy
-# bwght = b0 + b1faminc + b2cigs + b3male + b4cigtax + b5cigprice+ u # nolint
+# bwght = b0 + b1faminc + b2cigs + b3male + b4cigtax + b5cigprice+ u
 
 # B4: tiến hành hồi quy
 library(wooldridge)
@@ -8,14 +8,14 @@ summary(kqua)
 
 # B5 kiểm định sai dạng hàm (kiểm định RESET)
 library(lmtest)
-resettest(lm(bwght ~ faminc + male + cigs + cigtax + cigprice, data = bwght))
+resettest(kqua)
 
 # B6 Kiểm định phân phối chuẩn của u (Kiểm định giả thuyết MLR. 6)
-# cách 1
 library(normtest)
 u <- resid(kqua)
-# cách 2
+# cách 1
 jb.norm.test(u)
+# cách 2
 shapiro.test(u)
 
 # B7 Kiểm định phương sai thay đổi (Kiểm định giả thuyết MLR. 5)

@@ -1,19 +1,18 @@
-# Bài tập môn Kinh Tế Lượng
+# An Overview
+## A Problem
+Determine the effects of smoking during pregnancy on infant health. I also take some other factors that affect birth weight and likely to be correlated with smoking into account.
 
-1. Vấn đề nghiên cứu: nghiên cứu mối liên hệ giữa cân nặng của em bé mới sinh với việc hút thuốc lá của người mẹ, thu nhập của gia đình và giới tính của đứa bé. 
+## Introduce Variables
 
-2. Giới thiệu các biến:
+### Dependent Variable
+1. bwght: birth weight, ounces
 
-      a. Biến phụ thuộc: 
-    - bwght: Cân nặng của trẻ sơ sinh (ounces)
-
-     b. Biến độc lập:
-    - faminc: Thu nhập của gia đình (Nghìn đô la)
-    - male: Giới tính của trẻ ( =1 nếu là nam; = 0 nếu là nữ ) - Biến định tính
-    - cigs: Số điếu thuốc người mẹ hút hàng ngày trong thời gian mang thai (điếu/1 ngày)
-    - cigtax: Thuế của một gói thuốc lá (cents/1 gói) 
-    - cigprice: Giá của một gói thuốc lá (cents/1 gói)
+### Independent Variables
+1. faminc: family income, $1000s
+2. male: =1 if male child - Dummy Variable
+3. cigs:  cigs smoked per day while preg
+4. cigtax: cig. tax in home state
+5. cigprice:  cig. price in home state
   
-3. Nguồn dữ liệu: Sử dụng 1388 quan sát về cân nặng của trẻ sơ sinh trong bộ dữ liệu BWGHT trong thư viện wooldridge.
-(Bộ dữ liệu trên được giáo sư J. Mullahy (1997) cung cấp trong Tạp chí Kinh tế và Thống kê 79, 596-593. 
- Ông có được chúng từ cuộc Điều tra Phỏng vấn Y tế Quốc gia năm 1988)
+## Source
+Wooldridge Source: Use the data in libary [bwght]([https://pages.github.com/](https://www.cengage.com/cgi-wadsworth/course_products_wp.pl?fid=M20b&product_isbn_issn=9781111531041)). 

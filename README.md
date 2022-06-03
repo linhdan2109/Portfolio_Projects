@@ -1,7 +1,7 @@
 # An Overview
 ## A Problem
 Determine the effects of smoking during pregnancy on infant health. I also take some other factors that affect birth weight and likely to be correlated with smoking into account. Consider the following model: 
-- bwght = b0 + b1faminc + b2cigs + b3male + b4cigtax + b5cigprice+ u
+-  bwght = β0 + β1 faminc + β2 male + β3 cigs + β4 cigtax + β5 cigprice + u
 
 ## Introduce Variables
 

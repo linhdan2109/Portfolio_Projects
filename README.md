@@ -15,4 +15,4 @@ Determine the effects of smoking during pregnancy on infant health. I also take 
 5. cigprice:  cig. price in home state
   
 ## Source
-Wooldridge Source: Use the data in libary [bwght]([https://pages.github.com/](https://www.cengage.com/cgi-wadsworth/course_products_wp.pl?fid=M20b&product_isbn_issn=9781111531041)). 
+Wooldridge Source: Use the data set BWGHT in libary (Wooldridge) to estimate the model.

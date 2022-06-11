@@ -33,5 +33,62 @@ But because our dataset has a large sample size (1388 observations).
 => the OLS estimators are normally distributed regardless of the population distribution of u (from Central limit theorem)
 => the T-test and the F-test are still valid
 
+4.  Heteroskedasticity Test (Breusch-Pagan Test and White Test)
+Hypothesis:
+     H0: Homoskedasticity 
+     H1: Heteroskedasticity
+Result: 
+    Breusch-Pagan test : p-value = 0.9762 > α=0.05
+    White test: p-value = 0.6603 > α=0.05
+Therefore, we fail to reject the null hypothesis of homoskedasticity (at the 5% level)
 
+5. T-Test
+Hypothesis:
+     H0: βj = 0 (j = 1,2,3,4,5)
+     H1: βj != 0 (j = 1,2,3,4,5)
+Under this alternative, xj has a ceteris paribus effect on y without specifying whether the effect is positive or negative.
+Result (at the 5% level):
+  - faminc: 
+  p-value = 0,00113 < α=0.05 => reject H0
+  => faminc has a ceteris paribus effect on bwght
+	
+  - male: 
+  p-value = 0,00448 < α=0.05 => reject H0
+  => male has a ceteris paribus effect on bwght
+	
+  - cigs: 
+  p-value = 3.72e^(-7)< α=0.05 =>  reject H0
+  => cigs has a ceteris paribus effect on bwght
+	
+  - Biến cigtax: 
+  p-value = 0,31827 > α=0.05 => Can't not reject H0
+  => cigtax does not have a ceteris paribus effect on bwght
+	
+  - cigprice: 
+  p-value = 0,87097 > α=0.05 => Bác bỏ giả thuyết Ho 
+  => cigprice does not have a ceteris paribus effect on bwght
+
+6. F-Test - LM Test
+As the test results above, we see that cigtax and cigprice has no partial effect on bwght.
+Now, we want to test whether a group of (cigtax and cigprice) has no effect on bwght by F-test and LM test
+Hypothesis:
+     H0: β4 = β5 = 0 
+     H1: H0 is not true
+Result: 
+    F-test : p-value = 0.1999 > α=0.05
+    LM test: p-value = 0.1989 > α=0.05
+Therefore, we fail to reject the null hypothesis (at the 5% level)
+=> the group of variables are jointly insignificant
+=> dropping them from the model.
+     
+7. The right model is:
+bwght = β0  + β1 faminc + β2 male + β3 cigs + u     
+
+- The OLS regression is
+bwght = 115.2277  + 0.0969faminc + 3.114male – 0.4611cigs 
+        (1.2079)      (0.0292)	   (1.0764)	(0.0913)	    
+	n = 1388,  R2 = 0.03564
+
+ 
+  
 

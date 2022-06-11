@@ -1,6 +1,5 @@
 Regression Result
 
-
 1. With the model:  
       bwght = β0 + β1 faminc + β2 male + β3 cigs + β4 cigtax + β5 cigprice + u
       
@@ -48,6 +47,7 @@ Hypothesis:
      H1: βj != 0 (j = 1,2,3,4,5)
 Under this alternative, xj has a ceteris paribus effect on y without specifying whether the effect is positive or negative.
 Result (at the 5% level):
+  
   - faminc: 
   p-value = 0,00113 < α=0.05 => reject H0
   => faminc has a ceteris paribus effect on bwght

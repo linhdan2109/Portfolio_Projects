@@ -20,4 +20,5 @@ Wooldridge Source: Use the data set BWGHT in libary (Wooldridge) to estimate the
 ## Skills Acquired
 1. Basic knowledge of Economometrics
 2. Build a Multiple Linear Regression Model
-3. R language
+3. Hypothesis Testing:  Residual Normality Test, Heteroskedasticity Test, T-test, F-test to remove insignificant variables and unnecessary variables 
+4. R language

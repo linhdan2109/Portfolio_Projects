@@ -1,5 +1,5 @@
 ## Objective
-Determine the effects of smoking during pregnancy on infant health. I also take some other factors that affect birth weight and likely to be correlated with smoking into account. Consider the following model: 
+Build a Regression model to determine the effects of smoking during pregnancy on infant health. I also take some other factors that affect birth weight and likely to be correlated with smoking into account. Consider the following model: 
 -  bwght = β0 + β1 faminc + β2 male + β3 cigs + β4 cigtax + β5 cigprice + u
 
 ## Introduce Variables

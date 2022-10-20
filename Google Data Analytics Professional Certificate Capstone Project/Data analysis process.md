@@ -35,3 +35,38 @@ I have used Microsoft Excel and SQL for data validation and cleaning.
 ![image](https://user-images.githubusercontent.com/85982220/196922975-5e6e3284-c8bf-4f59-a75d-44a92540c10d.png)
 ![image](https://user-images.githubusercontent.com/85982220/196923014-a1ffa533-93dc-4f87-9399-d0cbd52bb482.png)
 ### SQL
+- [Click here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Google%20Data%20Analytics%20Professional%20Certificate%20Capstone%20Project/SQL_ProcessPharse.sql) to see the code of SQL in this process step.
+- Load some tables that will be used for the Analysis pharse into SSMS. There are 6 tables that will be used, and they are stored in the database name 'Bellabeat'.
+
+  ![image](https://user-images.githubusercontent.com/85982220/196999858-993f1995-a939-436f-94ee-6e5782edaa1a.png)
+
+- View table schema of 6 tables: We can see the data type of every columns and the table doesn't have any NULL values
+![image](https://user-images.githubusercontent.com/85982220/197016878-c4610588-c52c-4b58-b84d-d69720c0ba20.png)
+
+- View a number of rows in the dailyActivity_merged table
+![image](https://user-images.githubusercontent.com/85982220/197001812-ecbf2a14-e48b-42df-91cd-577cfca2d7f2.png)
+- Size of the tables. The dailyActivity_merged table have 940 records, The hourlyCalories have 22099 records,...
+
+
+   ![image](https://user-images.githubusercontent.com/85982220/197015373-ef7c024d-bcb1-44fa-8e40-412f594ee362.png)
+- As the author says, the data is collected from 3/12/2016 - 5/12/2016. So I will check if the date in the dateset fit their meaning.
+The result shows that there are no data points that are outside the range from 3/12/2016 to 5/12/2016.
+
+
+   ![image](https://user-images.githubusercontent.com/85982220/197007439-6a897606-6d4f-4c9f-a08f-61fedebe2e33.png)
+-  As the author says, the data is collected from 30 users. Check to see if we have 30 users. The dataset has 33 user data from daily activity, 24 from sleep and only 8 from weight. The result shows the dataset is inconsistent as we expect 30 unique Id on all tables.
+
+
+   ![image](https://user-images.githubusercontent.com/85982220/197012238-dcced94a-3549-44f1-9d68-8b61d3ebce1a.png)
+
+- Records which are dubplicate. The result shows that there are no duplicate
+
+
+   ![image](https://user-images.githubusercontent.com/85982220/197008764-83b8dd02-b0b4-4352-a638-a74b17a7a60f.png)
+
+
+
+
+
+
+

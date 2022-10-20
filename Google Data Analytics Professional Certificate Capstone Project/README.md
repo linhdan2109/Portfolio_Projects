@@ -1,5 +1,5 @@
 # 1. Introduction
-- For the Capstone Project of the Google Data Analytics Professional Specialization, I have selected the Bellabeat health-focused products for women analysis case study. 
+- For the Capstone Project of the Google Data Analytics Professional Specialization, I have selected the Bellabeat data analysis case study. 
 - I will perform the real-world tasks of a junior data analyst for the marketing team at Bellabeat, a high-tech manufacturer of health-focused products for women.
 - To answer key business questions, I followed the six steps of the data analysis process taught in the course which are: Ask, Prepare, Process, Analyze, Share and Act.
 

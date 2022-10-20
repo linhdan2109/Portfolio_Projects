@@ -6,11 +6,11 @@ SELECT
 	IS_NULLABLE
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = 'dailyActivity_merged'
-		OR TABLE_NAME = 'hourlyCalories_merged'
-		OR TABLE_NAME = 'hourlyIntensities_merged'
-		OR TABLE_NAME = 'hourlySteps_merged'
-		OR TABLE_NAME = 'sleepDay_merged'
-		OR TABLE_NAME = 'weightLogInfo_merged'
+	OR TABLE_NAME = 'hourlyCalories_merged'
+	OR TABLE_NAME = 'hourlyIntensities_merged'
+	OR TABLE_NAME = 'hourlySteps_merged'
+	OR TABLE_NAME = 'sleepDay_merged'
+	OR TABLE_NAME = 'weightLogInfo_merged'
 
 -- Show a number of rows
 SELECT TOP (1000) *
@@ -67,4 +67,12 @@ SELECT
 FROM [Bellabeat].[dbo].[dailyActivity_merged]
 GROUP BY Id, ActivityDate
 HAVING COUNT(*) >= 2
+
+-- Add a column for day of the week
+SELECT TOP (1000) 
+	ActivityDate, 
+	DATENAME(weekday, ActivityDate) AS Dayname
+FROM [Bellabeat].[dbo].[dailyActivity_merged]
+
+
 

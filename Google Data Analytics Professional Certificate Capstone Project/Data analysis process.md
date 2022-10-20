@@ -63,10 +63,12 @@ The result shows that there are no data points that are outside the range from 3
 
 
    ![image](https://user-images.githubusercontent.com/85982220/197008764-83b8dd02-b0b4-4352-a638-a74b17a7a60f.png)
+- Add a column for day of the week
 
 
+   ![image](https://user-images.githubusercontent.com/85982220/197024916-ebd482dc-4c89-4a6e-ac51-2964ce7a7a22.png)
 
-
+## 4. Analyze
 
 
 

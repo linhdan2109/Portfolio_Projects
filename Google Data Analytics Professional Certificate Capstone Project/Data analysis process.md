@@ -69,6 +69,36 @@ The result shows that there are no data points that are outside the range from 3
    ![image](https://user-images.githubusercontent.com/85982220/197024916-ebd482dc-4c89-4a6e-ac51-2964ce7a7a22.png)
 
 ## 4. Analyze
+- Click here to see the code of SQL in this analyze step.
+### 4.1. BMI
+#### BMI by UserID
+- As we discuss earlier, there are only 8 users in the WeightLogInfor table.
+- This is the table showing the latest BMI of those 8 users. There are 3 users with normal BMI, 4 users falls within the overweight range and 1 within the obesity range. 
+
+
+![image](https://user-images.githubusercontent.com/85982220/198353291-cd27f54e-4d73-42ba-8aa6-1fbe06371da9.png)
+- According to [Centers for Disease Control and Prevention](https://www.cdc.gov/obesity/basics/adult-defining.html#:~:text=If%20your%20BMI%20is%20less,falls%20within%20the%20obesity%20range.):
+  - If your BMI is less than 18.5, it falls within the underweight range.
+  - If your BMI is 18.5 to <25, it falls within the healthy weight range.
+  - If your BMI is 25.0 to <30, it falls within the overweight range.
+  - If your BMI is 30.0 or higher, it falls within the obesity range.
+- Based on BMI, we can divide customers into 4 groups: underweight, healthy weight, overweight and obesity. We develop the membership program with personalized guidance on nutrition, activity, and sleep that match their BMI.
+- Of course, the amount of data above is too small to analyze. We should retest this section with a larger amount of data. We need to investigate the Weight Status of most customers based on their BMI, then develop a marketing strategy appropriately.
+### 4.2. Sleeptime
+- From the data, I find that our users spend about 91% of time in bed to sleep at night.
+#### Sleeptime by UserID
+- Now lets take a look at each user's Sleeptime. There are 24 users in the SleepDay table.
+
+
+![image](https://user-images.githubusercontent.com/85982220/198359866-6cf70e53-9b17-4fe0-a2f1-3260ae80418f.png)
+- We find that the majority of users have good sleep quality. But there are 2 users who have problems with their sleep (they only sleep about 60% the time they in bed)
+- For the Bellabeat membership product, we should research and construct a program that offer solutions to help them improve their sleep. This program not only help people with sleep problems but also help normal people to have a deeper and better sleep. 
+#### Sleeptime by Weekday
+- There are no difference in %SleepTimeInBed (percent of the time users spend to sleep in bed) between days of the week.
+
+
+![image](https://user-images.githubusercontent.com/85982220/198363878-d7db7373-f4c0-4af8-82f4-71e41851e01e.png)
+### 4.3. Active minutes
 
 
 

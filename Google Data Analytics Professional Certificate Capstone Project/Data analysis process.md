@@ -182,8 +182,6 @@ Indeed, Friday is the day when normal users spend the least time in bed and slee
 
 
 &rarr; The [American Academy of Pediatrics](https://publications.aap.org/aapnews/news/6630?autologincheck=redirected?nfToken=00000000-0000-0000-0000-000000000000) and the [Centers for Disease Control and Prevention](https://www.cdc.gov/sleep/about_sleep/how_much_sleep.html) offer the sleep time for an aldults is 7 to 9 hours per day. We can help our users figure out what time to go to bed based on their wake up time and their percentage %Sleeptime In bed. We also send notifications reminding them to go to bed on time.
-
-We will learn more about the relationship between sleep and other factors in the Relationship section.
 ### 4.3. Active minutes <a name="Activeminutes"></a>
 - [%Active Minutes by Weekday](#ActiveMinutesbyWeekday)
 - [%Intensity by hour in a day](#ActiveMinutesbyHour)
@@ -268,6 +266,14 @@ There are variation in calories burning among users. The burning calories among 
 
 
 ![image](https://user-images.githubusercontent.com/85982220/198862590-91797fdc-0677-4c42-a200-33620d78039e.png)
+
+
+&rarr; The number of calories that need to burn each day is different for each user. It depends on many factors such as weight, BMI, ,lifestyle, fitness goals,... 
+
+
+&rarr; We should collect all of that information of our users and give them the most suitable calorie level. From that, the Bellabeat Membership Product can suggest the diet and exercise guide to achieve that calorie level.
+
+
 #### Calories by weekday <a name="CaloriesbyWeekday"></a>
 The table below shows the the average burning calories in a day per user across the days of the week. The table is sorted in descending order of calories:
 
@@ -321,8 +327,6 @@ Trend shows the total steps between hours in a day is showed in the table and li
 
 
 I found that the trend of average total steps was similar to the trend of user's average intensity and the trend of average calories burned. 
-### 4.6. Relationship <a name="Relationship"></a>
-
 ## 5. Share <a name="Share"></a>
 ## 6. Act <a name="Act"></a>
 

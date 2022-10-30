@@ -1,6 +1,24 @@
 # The Six Data Analysis Phases
 
-## 1. Ask
+## Table of contents
+[1. Ask](#Ask)
+
+
+[2. Prepare](#Prepare)
+
+
+[3. Process](#Process)
+
+
+[4. Analyze](#Analyze)
+
+
+[5. Share](#Share)
+
+
+[6. Act](#Act)
+
+## 1. Ask <a name="Ask"></a>
 ### Identify the business task:
 - Focus on a Bellabeat product: "Bellabeat membership" and analyze smart device usage data in order to gain insight into how people are already using their smart devices. 
 - Then, using this information, make high-level recommendations for how these trends can inform Bellabeat marketing strategy for the "Bellabeat membership" 
@@ -11,7 +29,7 @@ product.
 2. How could these trends apply to Bellabeat customers?
 3. How could these trends help influence Bellabeat marketing strategy?
 
-## 2. Prepare
+## 2. Prepare <a name="Prepare"></a>
 ### Data Source:
 Use public data that explores smart device users’ daily habits: [FitBit Fitness Tracker Data](https://www.kaggle.com/datasets/arashnic/fitbit). 
 The data has been made available by [Mobius](https://www.kaggle.com/arashnic)
@@ -23,9 +41,11 @@ This Kaggle data set contains personal fitness tracker from thirty fitbit users.
 personal tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring. It includes
 information about daily activity, steps, and heart rate that can be used to explore users’ habits
 
-## 3. Process
+## 3. Process <a name="Process"></a>
 I have used Microsoft Excel and SQL for data validation and cleaning.
-### Microsoft Excel
+- [Microsoft Excel](#Excel)
+- [SQL](#SQL)
+### Microsoft Excel <a name="Excel"></a>
 - By scanning through data in Excel worksheet, the general outline and basic information can be found which enable me to get familiarize with the dataset
 - Use Filter in Excel to check if there are any invalid/ incorrect / unusable data data in every columns. I don't seen any invalid data.
 - Use Conditional Formatting to check if there are any NULL values. 
@@ -34,7 +54,7 @@ I have used Microsoft Excel and SQL for data validation and cleaning.
 - Use Remove Duplicates in Power Query in Excel to check duplicates and remove it. I don't see any duplicate.
 ![image](https://user-images.githubusercontent.com/85982220/196922975-5e6e3284-c8bf-4f59-a75d-44a92540c10d.png)
 ![image](https://user-images.githubusercontent.com/85982220/196923014-a1ffa533-93dc-4f87-9399-d0cbd52bb482.png)
-### SQL
+### SQL <a name="SQL"></a>
 - [Click here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Google%20Data%20Analytics%20Professional%20Certificate%20Capstone%20Project/SQL_ProcessPharse.sql) to see the code of SQL in this process step.
 - Load some tables that will be used for the Analysis pharse into SSMS. There are 6 tables that will be used, and they are stored in the database name 'Bellabeat'.
 
@@ -68,12 +88,31 @@ The result shows that there are no data points that are outside the range from 3
 
    ![image](https://user-images.githubusercontent.com/85982220/197024916-ebd482dc-4c89-4a6e-ac51-2964ce7a7a22.png)
 
-## 4. Analyze
-
-
+## 4. Analyze <a name="Analyze"></a>
 Click here to see the code of SQL in this analyze step.
-### 4.1. BMI
-#### BMI by UserID
+
+
+[4.1. BMI](#BMI)
+
+
+[4.2. Sleeptime](#Sleeptime)
+
+
+[4.3. Active minutes](#Activeminutes)
+
+
+[4.4. Calories](#Calories)
+
+
+[4.5. Total Steps](#TotalSteps)
+
+
+[4.6. Relationship](#Relationship)
+
+
+### 4.1. BMI <a name="BMI"></a>
+- [BMI by UserID](#BMIbyUser)
+#### BMI by UserID <a name="BMIbyUser"></a>
 
 
 As we discuss earlier, there are only 8 users in the WeightLogInfor table.
@@ -96,13 +135,12 @@ According to [Centers for Disease Control and Prevention](https://www.cdc.gov/ob
 
 
 &rarr; Of course, the amount of data above is too small to analyze. We should retest this section with a larger amount of data. We need to investigate the Weight Status of most customers based on their BMI, then develop a marketing strategy appropriately and have a marketing strategy suitable for each group.
-### 4.2. Sleeptime
-
+### 4.2. Sleeptime <a name="Sleeptime"></a>
+- [%Sleeptime In Bed by UserID](#SleeptimebyUserID)
+- [%Sleeptime In Bed by Weekday](#SleeptimebyWeekday)
 
 From the data, I find that our users spend about 91% of time in bed to sleep at night.
-#### %Sleeptime In Bed by UserID
-
-
+#### %Sleeptime In Bed by UserID <a name="SleeptimebyUserID"></a>
 Now lets take a look at each user's Sleeptime. There are 24 users in the SleepDay table.
 
 
@@ -113,7 +151,7 @@ We find that the majority of users have good sleep quality. But there are 2 user
 
 
 &rarr; For the Bellabeat membership product, we should research and construct a program that offer solutions to help them improve their sleep. This program not only help people with sleep problems but also help normal people to have a deeper and better sleep. 
-#### %Sleeptime In bed by Weekday
+#### %Sleeptime In bed by Weekday <a name="SleeptimebyWeekday"></a>
 
 
 On sunday users tend to sleep less when they are in bed. 
@@ -146,8 +184,9 @@ Indeed, Friday is the day when normal users spend the least time in bed and slee
 &rarr; The [American Academy of Pediatrics](https://publications.aap.org/aapnews/news/6630?autologincheck=redirected?nfToken=00000000-0000-0000-0000-000000000000) and the [Centers for Disease Control and Prevention](https://www.cdc.gov/sleep/about_sleep/how_much_sleep.html) offer the sleep time for an aldults is 7 to 9 hours per day. We can help our users figure out what time to go to bed based on their wake up time and their percentage %Sleeptime In bed. We also send notifications reminding them to go to bed on time.
 
 We will learn more about the relationship between sleep and other factors in the Relationship section.
-### 4.3. Active minutes
-
+### 4.3. Active minutes <a name="Activeminutes"></a>
+- [%Active Minutes by Weekday](#ActiveMinutesbyWeekday)
+- [%Intensity by hour in a day](#ActiveMinutesbyHour)
 
 There are 4 states of physical activity: Very active, Fairly active, Lightly active and Sedentary.
 
@@ -176,7 +215,7 @@ From the table, we can see that users spent most of their time (81.3% of their d
 
 
 &rarr; For the marketing stragegy, We can give them coupon codes for the Bellabeat products or reduce the price of bellabeat Membership Program or a small gift if they complete enough tasks.
-#### %Active Minutes by Weekday
+#### %Active Minutes by Weekday <a name="ActiveMinutesbyWeekday"></a>
 
 
 There is a slightly different in %Active Minutes between days of the week.
@@ -198,26 +237,92 @@ But that motivation usually doesn't last long. On Sundays users tend to be more 
 
 
 &rarr; Every Saturday night and Sunday morning, we can create post on social media about the benefits of being active, motivating users to be more active on Sunday, encouraging them to use the Bellabeat Membership Program.
-#### %Intensity by hour in a day
+#### %Intensity by hour in a day <a name="ActiveMinutesbyHour"></a>
 
 
-Activity intensity tends to be high (>10,000) from 8 am to 9 pm. It is understandable because this is the time that the average person is active during a day.
+The table shows the average intensity of a user in a day between hours. Activity intensity tends to be high (>10) from 8 am to 10 pm. It is understandable because this is the time that the average person is active during a day.
 
 
-![image](https://user-images.githubusercontent.com/85982220/198832675-896f3528-edd8-4dab-8b9e-f64f1a46385d.png)
+![image](https://user-images.githubusercontent.com/85982220/198863226-07e4d1ec-313b-44a9-9fc5-ea16696c5be3.png)
 
 
 Now look at the line chart to to have a clearer view of the users' intensity trend:
 
 
-![image](https://user-images.githubusercontent.com/85982220/198833217-a9850f6e-0b03-415b-b9a1-17ea97d89931.png)
+![image](https://user-images.githubusercontent.com/85982220/198863292-d0971327-a959-4a09-bd5f-91271b6c99c4.png)
 - Intensity tends to increase sharply from 4 am to 8 am. This is the time to start a new day, people change their state quickly from relaxed to active, so we can see such a rapid change.
 - Then the intensity continued to increase slowly until 11 am. 
 - Intensity tends to decrease slightly from 12pm to 3pm. This is the time when they take a light break from an active morning
 - Then the intensity increases again and peaks between 5pm and 7pm. The chart shows that users are most active in the time frame from 5pm to 7pm during the day.
-- Finanly, the intensity tends to decrease sharply (from 20K to several thousand) in the time frame from 8 pm to 4 am. 
+- Finanly, the intensity tends to decrease sharply (from 19 to 4) in the time frame from 8 pm to 4 am. 
 This is the user's time to rest after a day.
 
 
 &rarr; I find that users are highly active between 5 pm and 7 pm, we should send email and notification to remind users to use Bellabeat Membership Product to watch the exercise instructions in product between 5pm to 7pm.
-### 4.4. Calories
+### 4.4. Calories <a name="Calories"></a>
+- [Calories by userId](#CaloriesbyUserId)
+- [Calories by weekday](#CaloriesbyWeekday)
+- [Calories by hour in a day](#CaloriesbyHour)
+#### Calories by userId <a name="CaloriesbyUserId"></a>
+There are variation in calories burning among users. The burning calories among users range from 1500 cal to 3500 cal.
+
+
+![image](https://user-images.githubusercontent.com/85982220/198862590-91797fdc-0677-4c42-a200-33620d78039e.png)
+#### Calories by weekday <a name="CaloriesbyWeekday"></a>
+The table below shows the the average burning calories in a day per user across the days of the week. The table is sorted in descending order of calories:
+
+
+![image](https://user-images.githubusercontent.com/85982220/198862798-71e19b73-6ce7-48dd-b11c-5aa735efbe6b.png)
+
+
+We see that Tuesday is the day when the highest number of calories are burned. Then followed by Saturday and Friday which are the 2nd and 3rd highest calories burned.
+
+
+The days with the least calories burned are Sunday and Thursday.
+#### Calories by hour in a day <a name="CaloriesbyHour"></a>
+Trend shows the burning calories between hours in a day is showed in the table and line chart below:
+
+
+![image](https://user-images.githubusercontent.com/85982220/198863008-74faf8d3-44be-49af-af30-b1db538481bc.png)
+
+
+![image](https://user-images.githubusercontent.com/85982220/198863373-4bc327c4-7551-47f7-a437-d0c7d9bd73b2.png)
+
+
+I found that the trend of average calories burned was similar to the trend of user's average intensity. This is also understandable because the higher the intensity of activity, the more calories burned. 
+### 4.5. Total Steps <a name="TotalSteps"></a>
+- [Total Steps by userId](#TotalStepsbyUserId)
+- [Total Steps by weekday](#TotalStepsbyWeekday)
+- [Total Steps by hour in a day](#TotalStepsbyHour)
+#### Total Steps by userId <a name="TotalStepsbyUserId"></a>
+As well as the number of calories burned, the total number of steps also varies between individuals. This is the table shows the average total steps in a day per user
+
+
+![image](https://user-images.githubusercontent.com/85982220/198863575-f9564a24-fb92-41cc-a0ac-22a86703615c.png)
+#### Total Steps by weekday <a name="TotalStepsbyWeekday"></a>
+The table below shows the the average total steps in a day per user across the days of the week. The table is sorted in descending order of total steps:
+
+
+![image](https://user-images.githubusercontent.com/85982220/198863664-b02439ab-4b67-4698-89ca-f7e99d7b7208.png)
+
+
+We see that Tuesday is the day when the highest number of total steps. Then followed by Wednesday and Thursday which are the 2nd and 3rd highest total steps.
+
+
+The days with the least calories burned are Sunday and Monday.
+#### Total Steps by hour in a day <a name="TotalStepsbyHour"></a>
+Trend shows the total steps between hours in a day is showed in the table and line chart below:
+
+
+![image](https://user-images.githubusercontent.com/85982220/198863963-2874d3fc-09f3-4daa-af6b-258c77a01046.png)
+
+
+![image](https://user-images.githubusercontent.com/85982220/198864052-3e1983e4-d9a4-4b4c-93ef-2f28671e1764.png)
+
+
+I found that the trend of average total steps was similar to the trend of user's average intensity and the trend of average calories burned. 
+### 4.6. Relationship <a name="Relationship"></a>
+
+## 5. Share <a name="Share"></a>
+## 6. Act <a name="Act"></a>
+

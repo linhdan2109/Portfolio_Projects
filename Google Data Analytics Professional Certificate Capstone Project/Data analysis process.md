@@ -107,23 +107,9 @@ Click here to see the code of SQL in this analyze step.
 [4.5. Total Steps](#TotalSteps)
 
 
-[4.6. Relationship](#Relationship)
-
-
 ### 4.1. BMI <a name="BMI"></a>
 - [BMI by UserID](#BMIbyUser)
 #### BMI by UserID <a name="BMIbyUser"></a>
-
-
-As we discuss earlier, there are only 8 users in the WeightLogInfor table.
-
-
-This is the table showing the latest BMI of those 8 users. There are 3 users with normal BMI, 4 users falls within the overweight range and 1 within the obesity range. 
-
-
-![image](https://user-images.githubusercontent.com/85982220/198353291-cd27f54e-4d73-42ba-8aa6-1fbe06371da9.png)
-
-
 According to [Centers for Disease Control and Prevention](https://www.cdc.gov/obesity/basics/adult-defining.html#:~:text=If%20your%20BMI%20is%20less,falls%20within%20the%20obesity%20range.):
 - If your BMI is less than 18.5, it falls within the underweight range.
 - If your BMI is 18.5 to <25, it falls within the healthy weight range.
@@ -131,10 +117,28 @@ According to [Centers for Disease Control and Prevention](https://www.cdc.gov/ob
 - If your BMI is 30.0 or higher, it falls within the obesity range.
 
 
+As we discuss earlier, there are only 8 users in the WeightLogInfor table.
+
+
+This is the donut chart showing the latest BMI of those 8 users. There are 3 users with normal BMI, 4 users falls within the overweight range and 1 within the obesity range. 
+
+
+![image](https://user-images.githubusercontent.com/85982220/198885214-70f915c9-0f9b-405a-ab27-f33ffbece38e.png)
+
+
 &rarr; Based on BMI, we can divide customers into 4 groups: underweight, healthy weight, overweight and obesity. We develop the membership program with personalized guidance on nutrition, activity, and sleep that match their BMI.
 
 
-&rarr; Of course, the amount of data above is too small to analyze. We should retest this section with a larger amount of data. We need to investigate the Weight Status of most customers based on their BMI, then develop a marketing strategy appropriately and have a marketing strategy suitable for each group.
+&rarr; We need to investigate the Weight Status of most customers based on their BMI, then develop a marketing strategy appropriately and have a marketing strategy suitable for each group. For example:
+  - For users fall within the underweight range: We should advertise and suggest them The Membership program that help them gain weight.
+  - For users fall within the healthy weight range: We can recommend programs that fit their fitness goals and provide instructions that prevent them from unwanted weight gain from excess body fat.
+  - For users fall within the overweight range: We should advertise the ability to help them lose weight.
+  - For users fall within the obesity range: Provide Obesity Treatment based on their specific condition. We need a detailed personalized guidance on their diet, exercise and mental health for them.
+  
+
+&rarr; Of course, the amount of data above is too small to analyze. We should retest this section with a larger amount of data.
+
+
 ### 4.2. Sleeptime <a name="Sleeptime"></a>
 - [%Sleeptime In Bed by UserID](#SleeptimebyUserID)
 - [%Sleeptime In Bed by Weekday](#SleeptimebyWeekday)
@@ -144,29 +148,29 @@ From the data, I find that our users spend about 91% of time in bed to sleep at 
 Now lets take a look at each user's Sleeptime. There are 24 users in the SleepDay table.
 
 
-![image](https://user-images.githubusercontent.com/85982220/198359866-6cf70e53-9b17-4fe0-a2f1-3260ae80418f.png)
+I calculate the ratio of the time users actually sleep compared to their time in bed to find %Sleeptime In Bed of each User. Then take the average of the %Sleeptime In Bed ratio for each user. 
+- User have **good sleep quality** when the average of the %Sleeptime In Bed ratio is higher than 85%
+- User have **poor sleep quality** when the average of the %Sleeptime In Bed ratio is lower than 85%
 
 
-We find that the majority of users have good sleep quality. But there are 2 users who have problems with their sleep (they only sleep about 60% the time they in bed)
+This donut chart showing percentage of users with good sleep quality vs users poor sleep quality
+
+
+![image](https://user-images.githubusercontent.com/85982220/198886531-88cc5bed-598f-4e43-aa03-f641830dbc32.png)
+
+
+We find that the majority of users have good sleep quality (most users sleep above 90% the time they in bed). But there are 2 users who have problems with their sleep (they only sleep about 60% the time they in bed)
 
 
 &rarr; For the Bellabeat membership product, we should research and construct a program that offer solutions to help them improve their sleep. This program not only help people with sleep problems but also help normal people to have a deeper and better sleep. 
 #### %Sleeptime In bed by Weekday <a name="SleeptimebyWeekday"></a>
-
-
-On sunday users tend to sleep less when they are in bed. 
-
-
-![image](https://user-images.githubusercontent.com/85982220/198363878-d7db7373-f4c0-4af8-82f4-71e41851e01e.png)
-
-
-But %SleeptimeInbed is only a relative percentage, not an exact number of hours of sleep. The following table shows exact number of the average sleep hours of a user over the days of the week. 
+The following table shows exact number of the average sleep hours of a user over the days of the week. 
 
 
 ![image](https://user-images.githubusercontent.com/85982220/198838437-118257ff-fc0b-4a43-8024-6f53afce90f7.png)
 
 
-From the table we find that actually on Sundays users tend to spend more time in bed, not less time for sleep. In addition, on Sunday they sleep more than workdays.
+From the table we find that on Sunday users tend to spend more time in bed and users tend to sleep more on Sunday than other days.
 
 
 And on Thursday they spend the the least amount of time for sleeping. 
@@ -181,6 +185,14 @@ But keep in mind we have 2 users with very poor sleep quality (UserID: 184450507
 Indeed, Friday is the day when normal users spend the least time in bed and sleep the least. Sunday is still the day normal users sleep the most.
 
 
+But these are exact number of hours of sleep. We see that the number of hours in bed is quite varied between the days of the week. To know more about sleep quality, again, I use the average of the %Sleeptime In Bed ratio for each weekday. The results is in the table below
+
+
+![image](https://user-images.githubusercontent.com/85982220/198888135-0635e48c-0744-4d81-9624-524d8eb76cdf.png)
+
+
+From the table, we see that there was not much difference in the sleep quality of the users between the days of the week
+
 &rarr; The [American Academy of Pediatrics](https://publications.aap.org/aapnews/news/6630?autologincheck=redirected?nfToken=00000000-0000-0000-0000-000000000000) and the [Centers for Disease Control and Prevention](https://www.cdc.gov/sleep/about_sleep/how_much_sleep.html) offer the sleep time for an aldults is 7 to 9 hours per day. We can help our users figure out what time to go to bed based on their wake up time and their percentage %Sleeptime In bed. We also send notifications reminding them to go to bed on time.
 ### 4.3. Active minutes <a name="Activeminutes"></a>
 - [%Active Minutes by Weekday](#ActiveMinutesbyWeekday)
@@ -192,7 +204,7 @@ There are 4 states of physical activity: Very active, Fairly active, Lightly act
 From the table, we can see that users spent most of their time (81.3% of their daily activity) in sedentary minutes, 15.8% in lightly active minutes and only 1.74% in very active minutes.
 
 
-![image](https://user-images.githubusercontent.com/85982220/198829312-084361cc-c4fb-454a-b948-0a334f98c133.png)
+![image](https://user-images.githubusercontent.com/85982220/198888752-e84c96a0-a889-4f49-b99a-bfb37653b5c0.png)
 
 
 &rarr; The time users spend in a day on 4 states of physical activity is:
@@ -219,35 +231,37 @@ From the table, we can see that users spent most of their time (81.3% of their d
 There is a slightly different in %Active Minutes between days of the week.
 
 
-![image](https://user-images.githubusercontent.com/85982220/198829870-a9fb6d12-cd90-4d7d-a12e-151763bf6caf.png)
+![image](https://user-images.githubusercontent.com/85982220/198888690-19d87e42-cb87-4a05-8710-552d5fff3712.png)
 
 
 Look at the bar graph below, we see that on Friday and Saturday users spent less minutes in sedentary (%SedentaryMinutes decreases about 1% to 2%) and take more minutes in lightly active minutes. It shows that after the end of a working week, users are motivated to become more active.
 
 
-![image](https://user-images.githubusercontent.com/85982220/198831833-15ef1fc5-79be-4afe-8485-da8ab67602a6.png)
+![image](https://user-images.githubusercontent.com/85982220/198888411-e3d3701b-68f7-4843-8610-f0d338befca5.png)
 
 
 But that motivation usually doesn't last long. On Sundays users tend to be more sedentary than working day.
 
 
-![image](https://user-images.githubusercontent.com/85982220/198832305-a979e4d9-0502-41ab-8956-f166d0696b31.png)
+![image](https://user-images.githubusercontent.com/85982220/198888419-59405d89-5a60-462e-946a-4f8985557cc9.png)
 
 
 &rarr; Every Saturday night and Sunday morning, we can create post on social media about the benefits of being active, motivating users to be more active on Sunday, encouraging them to use the Bellabeat Membership Program.
 #### %Intensity by hour in a day <a name="ActiveMinutesbyHour"></a>
+Total Intensity by hour is the value calculated by adding all the minute-level intensity values that occurred within the hour.
 
 
-The table shows the average intensity of a user in a day between hours. Activity intensity tends to be high (>10) from 8 am to 10 pm. It is understandable because this is the time that the average person is active during a day.
+Intensity value for the given minute is calculated by:
+- 0 = Sedentary
+- 1 = Light
+- 2 = Moderate 
+- 3 = Very Active
 
 
-![image](https://user-images.githubusercontent.com/85982220/198863226-07e4d1ec-313b-44a9-9fc5-ea16696c5be3.png)
+Now look at the line chart to to have a clearer view of the users' intensity trend. The line chart shows the change in the average intensity of a user over hours in a day. 
 
 
-Now look at the line chart to to have a clearer view of the users' intensity trend:
-
-
-![image](https://user-images.githubusercontent.com/85982220/198863292-d0971327-a959-4a09-bd5f-91271b6c99c4.png)
+![image](https://user-images.githubusercontent.com/85982220/198888468-0943f254-0e1f-4b71-8507-d55118bf31fa.png)
 - Intensity tends to increase sharply from 4 am to 8 am. This is the time to start a new day, people change their state quickly from relaxed to active, so we can see such a rapid change.
 - Then the intensity continued to increase slowly until 11 am. 
 - Intensity tends to decrease slightly from 12pm to 3pm. This is the time when they take a light break from an active morning
@@ -262,10 +276,10 @@ This is the user's time to rest after a day.
 - [Calories by weekday](#CaloriesbyWeekday)
 - [Calories by hour in a day](#CaloriesbyHour)
 #### Calories by userId <a name="CaloriesbyUserId"></a>
-There are variation in calories burning among users. The burning calories among users range from 1500 cal to 3500 cal.
+There are variation in calories burning among users. The following chart is a histogram showing the distribution of the burning calorie among users by day
 
 
-![image](https://user-images.githubusercontent.com/85982220/198862590-91797fdc-0677-4c42-a200-33620d78039e.png)
+![image](https://user-images.githubusercontent.com/85982220/198889852-4ba367bb-0e64-4fa6-83c7-5818d2c7a234.png)
 
 
 &rarr; The number of calories that need to burn each day is different for each user. It depends on many factors such as weight, BMI, ,lifestyle, fitness goals,... 
@@ -275,24 +289,24 @@ There are variation in calories burning among users. The burning calories among 
 
 
 #### Calories by weekday <a name="CaloriesbyWeekday"></a>
-The table below shows the the average burning calories in a day per user across the days of the week. The table is sorted in descending order of calories:
-
-
-![image](https://user-images.githubusercontent.com/85982220/198862798-71e19b73-6ce7-48dd-b11c-5aa735efbe6b.png)
-
-
+The chart below shows the the average burning calories in a day per user across the days of the week.
 We see that Tuesday is the day when the highest number of calories are burned. Then followed by Saturday and Friday which are the 2nd and 3rd highest calories burned.
 
 
+![image](https://user-images.githubusercontent.com/85982220/198890534-6d9a2660-9d18-402e-9d4d-0faf3a67a521.png)
+
+
 The days with the least calories burned are Sunday and Thursday.
+
+
+![image](https://user-images.githubusercontent.com/85982220/198890551-dd355409-b6e7-4e86-8ae0-1d2bf05564af.png)
+
+
 #### Calories by hour in a day <a name="CaloriesbyHour"></a>
-Trend shows the burning calories between hours in a day is showed in the table and line chart below:
+Trend shows the burning calories between hours in a day is showed in the line chart below
 
 
-![image](https://user-images.githubusercontent.com/85982220/198863008-74faf8d3-44be-49af-af30-b1db538481bc.png)
-
-
-![image](https://user-images.githubusercontent.com/85982220/198863373-4bc327c4-7551-47f7-a437-d0c7d9bd73b2.png)
+![image](https://user-images.githubusercontent.com/85982220/198890723-44438506-be86-4ccf-aacc-242cf6ecfffb.png)
 
 
 I found that the trend of average calories burned was similar to the trend of user's average intensity. This is also understandable because the higher the intensity of activity, the more calories burned. 
@@ -301,29 +315,30 @@ I found that the trend of average calories burned was similar to the trend of us
 - [Total Steps by weekday](#TotalStepsbyWeekday)
 - [Total Steps by hour in a day](#TotalStepsbyHour)
 #### Total Steps by userId <a name="TotalStepsbyUserId"></a>
-As well as the number of calories burned, the total number of steps also varies between individuals. This is the table shows the average total steps in a day per user
+As well as the number of calories burned, the total number of steps also varies between individuals. 
+This is the histogram showing the distribution of total steps in a day per user
 
 
-![image](https://user-images.githubusercontent.com/85982220/198863575-f9564a24-fb92-41cc-a0ac-22a86703615c.png)
+![image](https://user-images.githubusercontent.com/85982220/198891271-8a7c8317-ad2a-4b70-8032-9904097e07ef.png)
 #### Total Steps by weekday <a name="TotalStepsbyWeekday"></a>
-The table below shows the the average total steps in a day per user across the days of the week. The table is sorted in descending order of total steps:
-
-
-![image](https://user-images.githubusercontent.com/85982220/198863664-b02439ab-4b67-4698-89ca-f7e99d7b7208.png)
-
-
+The chart below shows the the average total steps in a day per user across the days of the week
 We see that Tuesday is the day when the highest number of total steps. Then followed by Wednesday and Thursday which are the 2nd and 3rd highest total steps.
 
 
+![image](https://user-images.githubusercontent.com/85982220/198891429-beafe090-acc6-44c1-a92b-d5e8612a57b3.png)
+
+
 The days with the least calories burned are Sunday and Monday.
+
+
+![image](https://user-images.githubusercontent.com/85982220/198891443-ccafc854-b097-4054-b8a2-4f1754fb3762.png)
+
+
 #### Total Steps by hour in a day <a name="TotalStepsbyHour"></a>
-Trend shows the total steps between hours in a day is showed in the table and line chart below:
+Trend shows the total steps between hours in a day is showed in the line chart below:
 
 
-![image](https://user-images.githubusercontent.com/85982220/198863963-2874d3fc-09f3-4daa-af6b-258c77a01046.png)
-
-
-![image](https://user-images.githubusercontent.com/85982220/198864052-3e1983e4-d9a4-4b4c-93ef-2f28671e1764.png)
+![image](https://user-images.githubusercontent.com/85982220/198891456-6c8fa18a-a464-4eb0-ad49-7b1063054fb8.png)
 
 
 I found that the trend of average total steps was similar to the trend of user's average intensity and the trend of average calories burned. 

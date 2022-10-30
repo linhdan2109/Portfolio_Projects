@@ -39,4 +39,7 @@ Membership gives users 24/7 access to fully personalized guidance on nutrition, 
 beauty, and mindfulness based on their lifestyle and goals
 
 # 5. Data analysis process
+According to Google, there are six data analysis phases or steps: ask, prepare, process, analyze, share, and act. Following them should result in a frame that makes decision-making and problem solving a little easier
+
+
 [Click here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Google%20Data%20Analytics%20Professional%20Certificate%20Capstone%20Project/Data%20analysis%20process.md) to see the details of the Data analysis process

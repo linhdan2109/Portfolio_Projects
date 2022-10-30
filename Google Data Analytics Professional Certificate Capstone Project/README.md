@@ -37,3 +37,6 @@ hydration levels.
 - **Bellabeat membership:** Bellabeat also offers a subscription-based membership program for users.
 Membership gives users 24/7 access to fully personalized guidance on nutrition, activity, sleep, health and
 beauty, and mindfulness based on their lifestyle and goals
+
+# 5. Data analysis process
+[Click here](https://github.com/linhdan2109/Portfolio_Projects/tree/main/Google%20Data%20Analytics%20Professional%20Certificate%20Capstone%20Project) to see the details of the Data analysis process

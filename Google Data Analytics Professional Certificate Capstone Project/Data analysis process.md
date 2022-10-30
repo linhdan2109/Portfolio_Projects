@@ -320,6 +320,9 @@ This is the histogram showing the distribution of total steps in a day per user
 
 
 ![image](https://user-images.githubusercontent.com/85982220/198891271-8a7c8317-ad2a-4b70-8032-9904097e07ef.png)
+
+
+&rarr; Most users have a daily total steps of 5000 - 10000 steps and the frequency of users walking less than 5,000 steps a day is still quite high.
 #### Total Steps by weekday <a name="TotalStepsbyWeekday"></a>
 The chart below shows the the average total steps in a day per user across the days of the week
 We see that Tuesday is the day when the highest number of total steps. Then followed by Wednesday and Thursday which are the 2nd and 3rd highest total steps.

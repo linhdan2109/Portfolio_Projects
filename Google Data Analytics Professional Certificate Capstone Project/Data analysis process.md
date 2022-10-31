@@ -87,6 +87,11 @@ The result shows that there are no data points that are outside the range from 3
 
 
    ![image](https://user-images.githubusercontent.com/85982220/197024916-ebd482dc-4c89-4a6e-ac51-2964ce7a7a22.png)
+- Add a column to calculate total minutes using smart device per day in the DailyActivity table. Total minutes is calculated by adding 4 column: VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes
+
+
+![image](https://user-images.githubusercontent.com/85982220/198982457-6187c8b7-f2d0-4486-9f73-abef8f5ae5ec.png)
+
 
 ## 4. Analyze <a name="Analyze"></a>
 Click here to see the code of SQL in this analyze step.
@@ -105,6 +110,9 @@ Click here to see the code of SQL in this analyze step.
 
 
 [4.5. Total Steps](#TotalSteps)
+
+
+[4.6. Frequency of smart device use](#Frequency)
 
 
 ### 4.1. BMI <a name="BMI"></a>
@@ -126,7 +134,10 @@ This is the donut chart showing the latest BMI of those 8 users. There are 3 use
 ![image](https://user-images.githubusercontent.com/85982220/198885214-70f915c9-0f9b-405a-ab27-f33ffbece38e.png)
 
 
-&rarr; Based on BMI, I recommend we divide customers into 4 groups: underweight, healthy weight, overweight and obesity. Then, we develop the membership program with personalized guidance on nutrition, activity, and sleep that match their BMI. For example:
+**Recommendation:**
+
+
+&rarr; Based on BMI, we can divide customers into 4 groups: underweight, healthy weight, overweight and obesity. Then, we develop the membership program with personalized guidance on nutrition, activity, and sleep that match their BMI. For example:
   - For users fall within the underweight range: We should advertise and suggest them The Membership program that help them gain weight.
   - For users fall within the healthy weight range: We can recommend programs that fit their fitness goals and provide instructions that prevent them from unwanted weight gain from excess body fat.
   - For users fall within the overweight range: We should advertise the ability to help them lose weight.
@@ -162,6 +173,8 @@ This donut chart showing percentage of users with good sleep quality vs users po
 We find that the majority of users have good sleep quality (most users sleep above 90% the time they in bed). But there are 2 users who have problems with their sleep (they only sleep about 60% the time they in bed)
 
 
+**Recommendation:**
+
 &rarr; For the Bellabeat membership product, we should research and construct a program that offer solutions to help them improve their sleep. This program not only help people with sleep problems but also help normal people to have a deeper and better sleep. 
 #### %Sleeptime In bed by Weekday <a name="SleeptimebyWeekday"></a>
 The following table shows exact number of the average sleep hours of a user over the days of the week. 
@@ -193,10 +206,18 @@ But these are exact number of hours of sleep. We see that the number of hours in
 
 From the table, we see that there was not much difference in the sleep quality of the users between the days of the week
 
-&rarr; The [American Academy of Pediatrics](https://publications.aap.org/aapnews/news/6630?autologincheck=redirected?nfToken=00000000-0000-0000-0000-000000000000) and the [Centers for Disease Control and Prevention](https://www.cdc.gov/sleep/about_sleep/how_much_sleep.html) offer the sleep time for an aldults is 7 to 9 hours per day. We can help our users figure out what time to go to bed based on their wake up time and their percentage %Sleeptime In bed. We also send notifications reminding them to go to bed on time.
+
+**Recommendation:**
+
+
+&rarr; The [American Academy of Pediatrics](https://publications.aap.org/aapnews/news/6630?autologincheck=redirected?nfToken=00000000-0000-0000-0000-000000000000) and the [Centers for Disease Control and Prevention](https://www.cdc.gov/sleep/about_sleep/how_much_sleep.html) offer the sleep time for an aldults is 7 to 9 hours per day. 
+
+
+&rarr; We can help our users figure out what time to go to bed based on their wake up time and their percentage %Sleeptime In bed. We also send notifications reminding them to go to bed on time.
 ### 4.3. Active minutes <a name="Activeminutes"></a>
 - [%Active Minutes by Weekday](#ActiveMinutesbyWeekday)
 - [%Intensity by hour in a day](#ActiveMinutesbyHour)
+- [Total Minutes as sleep vs Sedentary Minutes](#TotalMinutesassleepvsSedentaryMinutes)
 
 There are 4 states of physical activity: Very active, Fairly active, Lightly active and Sedentary.
 
@@ -207,11 +228,14 @@ From the table, we can see that users spent most of their time (81.3% of their d
 ![image](https://user-images.githubusercontent.com/85982220/198888752-e84c96a0-a889-4f49-b99a-bfb37653b5c0.png)
 
 
-&rarr; The time users spend in a day on 4 states of physical activity is:
+The time users spend in a day on 4 states of physical activity is:
 - Sedentary minutes: 19.5 hours 
 - Lightly active: 4 hours
 - Fairly active: 15 minutes 
 - Very active: 30 minutes
+
+
+**Recommendation:**
 
 
 &rarr; Users should reduce the sedentary minutes and increase time in lightly active
@@ -246,6 +270,9 @@ But that motivation usually doesn't last long. On Sundays users tend to be more 
 ![image](https://user-images.githubusercontent.com/85982220/198888419-59405d89-5a60-462e-946a-4f8985557cc9.png)
 
 
+**Recommendation:**
+
+
 &rarr; Every Saturday night and Sunday morning, I recommend creating post on social media about the benefits of being active, motivating users to be more active on Sunday, encouraging them to use the Bellabeat Membership Program.
 
 
@@ -273,7 +300,26 @@ Now look at the line chart to to have a clearer view of the users' intensity tre
 This is the user's time to rest after a day.
 
 
+**Recommendation:**
+
 &rarr; I find that users are highly active between 5 pm and 7 pm, we should send email and notification to remind users to use Bellabeat Membership Product to watch the exercise instructions in product between 5pm to 7pm.
+
+
+#### Total Minutes as sleep vs Sedentary Minutes <a name="TotalMinutesassleepvsSedentaryMinutes"></a>
+Following is the correlogram of Total minutes as sleep compare with total minutes in sedentary activity:
+
+
+![image](https://user-images.githubusercontent.com/85982220/198999614-e3434253-fc23-4288-8a28-a425c9738e17.png)
+
+
+The correlogram shows that users who spend much time in sedentary minutes tend to sleep less. 
+
+
+**Recommendation:**
+
+&rarr; With the group of users who have a sedentary lifestyle, Bellabeat can focus the advertisement on how sedentary behavior can affect sleep. We should email them studies have shown that exercise improves sleep quality, and sugest them some Membership program with light exercise.
+
+
 ### 4.4. Calories <a name="Calories"></a>
 - [Calories by userId](#CaloriesbyUserId)
 - [Calories by weekday](#CaloriesbyWeekday)
@@ -283,6 +329,9 @@ There are variation in calories burning among users. The following chart is a hi
 
 
 ![image](https://user-images.githubusercontent.com/85982220/198889852-4ba367bb-0e64-4fa6-83c7-5818d2c7a234.png)
+
+
+**Recommendation:**
 
 
 &rarr; The number of calories that need to burn each day is different for each user. It depends on many factors such as weight, BMI, ,lifestyle, fitness goals,... 
@@ -313,6 +362,8 @@ Trend shows the burning calories between hours in a day is showed in the line ch
 
 
 I found that the trend of average calories burned was similar to the trend of user's average intensity. This is also understandable because the higher the intensity of activity, the more calories burned. 
+
+
 ### 4.5. Total Steps <a name="TotalSteps"></a>
 - [Total Steps by userId](#TotalStepsbyUserId)
 - [Total Steps by weekday](#TotalStepsbyWeekday)
@@ -327,11 +378,13 @@ This is the histogram showing the distribution of total steps in a day per user
 
 Most users have a daily total steps of 5000 - 10000 steps and the frequency of users walking less than 5,000 steps a day is still quite high.
 
+**Recommendation:**
+
 
 &rarr; Share this information with users, shows that they are lacking in exercise and remind them that lack of exercise is a major cause of health problem. 
 
 
-&rarr; I recommend creating fitness challenges to encourage users to walk more
+&rarr; Create fitness challenges to encourage users to walk more and there will be a reward for them after reaching the required number of kilometers.
 #### Total Steps by weekday <a name="TotalStepsbyWeekday"></a>
 The chart below shows the the average total steps in a day per user across the days of the week
 We see that Saturday is the day when the highest number of total steps. Then followed by Tuesday which are the 2nd total steps.
@@ -354,6 +407,41 @@ Trend shows the total steps between hours in a day is showed in the line chart b
 
 
 I found that the trend of average total steps was similar to the trend of user's average intensity and the trend of average calories burned. 
+
+
+### 4.6. Frequency of smart device use <a name="Frequency"></a>
+Following is the histogram showing the Frequency of smart device use. 
+
+
+The x-axis describes the number of hours a user uses the smart device in a day:
+- 0h - 6h means that user used the device between 0 hours and 6 hours in that day.
+- 6h - 12h means that user used the device between 6 hours and 12 hours in that day.
+- 12h - 18h means that user used the device between 12 hours and 18 hours in that day.
+- 18h - 24h means that user used the device between 18 hours and 24 hours in that day.
+- Full day means that user used the device all day in that day.
+
+
+The y-axis is the frequency of occurrence for each case on the x-axis
+
+
+![image](https://user-images.githubusercontent.com/85982220/199003591-8496c479-b91c-4951-8424-95939c212fcc.png)
+
+
+We see that there are still many cases where the user does not wear the smart device for full day. 
+
+
+**Recommendation:**
+
+
+&rarr; Send notification to remind the user to wear the device when they don't wear the smart device in an hour.
+
+
+&rarr; Maybe for some personal reasons, the users need to remove the device for a while and they need an alarm clock that reminds them to put the device back on. So from that, Bellabeat can also provide the alarm for users to set that will ring to remind users to wear their smart device.
+
+
+&rarr; With the current data set, it is not possible to check what time of day user usually not wear the device. With a more complete data set, we should analyze in what time users are not often wearing the device. From there, we will find out causes and appropriate solutions to help users not take off the device. 
+
+
 ## 5. Share <a name="Share"></a>
 ## 6. Act <a name="Act"></a>
 

@@ -79,8 +79,9 @@ SELECT TOP (1000)
 FROM [Bellabeat].[dbo].[dailyActivity_merged]
 
 
-
 -- Add a column count total minutes using smart device per day. 
 -- Total minutes is calculated by adding 4 column: VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes
 ALTER TABLE [Bellabeat].[dbo].[dailyActivity_merged]
 ADD TotalMinutes AS (VeryActiveMinutes + FairlyActiveMinutes + LightlyActiveMinutes + SedentaryMinutes)
+
+

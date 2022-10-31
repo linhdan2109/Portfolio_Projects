@@ -126,15 +126,15 @@ This is the donut chart showing the latest BMI of those 8 users. There are 3 use
 ![image](https://user-images.githubusercontent.com/85982220/198885214-70f915c9-0f9b-405a-ab27-f33ffbece38e.png)
 
 
-&rarr; Based on BMI, we can divide customers into 4 groups: underweight, healthy weight, overweight and obesity. We develop the membership program with personalized guidance on nutrition, activity, and sleep that match their BMI.
-
-
-&rarr; We need to investigate the Weight Status of most customers based on their BMI, then develop a marketing strategy appropriately and have a marketing strategy suitable for each group. For example:
+&rarr; Based on BMI, I recommend we divide customers into 4 groups: underweight, healthy weight, overweight and obesity. Then, we develop the membership program with personalized guidance on nutrition, activity, and sleep that match their BMI. For example:
   - For users fall within the underweight range: We should advertise and suggest them The Membership program that help them gain weight.
   - For users fall within the healthy weight range: We can recommend programs that fit their fitness goals and provide instructions that prevent them from unwanted weight gain from excess body fat.
   - For users fall within the overweight range: We should advertise the ability to help them lose weight.
   - For users fall within the obesity range: Provide Obesity Treatment based on their specific condition. We need a detailed personalized guidance on their diet, exercise and mental health for them.
   
+  
+  &rarr; We need to investigate the Weight Status of most customers to know which group of our customers mainly belong to. Then develop marketing campaigns suitable for that key customer group.
+
 
 &rarr; Of course, the amount of data above is too small to analyze. We should retest this section with a larger amount of data.
 
@@ -217,7 +217,7 @@ From the table, we can see that users spent most of their time (81.3% of their d
 &rarr; Users should reduce the sedentary minutes and increase time in lightly active
 
 
-&rarr; we can add small tasks in the Bellabeat membership program to encourage users to reduce the sedentary minutes, increase time in lightly active like:
+&rarr; I recommend adding small tasks in the Bellabeat membership program to encourage users to reduce the sedentary minutes, increase time in lightly active like:
 -  Stretch their shoulder 5 minutes after 1 hour of sitting continuously.
 -  Do a light exercise for 15 minutes after wake up and befor go to sleep.
 -  Clean the room for every week.
@@ -246,7 +246,10 @@ But that motivation usually doesn't last long. On Sundays users tend to be more 
 ![image](https://user-images.githubusercontent.com/85982220/198888419-59405d89-5a60-462e-946a-4f8985557cc9.png)
 
 
-&rarr; Every Saturday night and Sunday morning, we can create post on social media about the benefits of being active, motivating users to be more active on Sunday, encouraging them to use the Bellabeat Membership Program.
+&rarr; Every Saturday night and Sunday morning, I recommend creating post on social media about the benefits of being active, motivating users to be more active on Sunday, encouraging them to use the Bellabeat Membership Program.
+
+
+&rarr; I also recommend creating challenges on every Sunday with hashtag on social media (Ex: #ActiveOnSundayWithBellabeat). Every week is a different challenge, different exercise to create excitement for users.
 #### %Intensity by hour in a day <a name="ActiveMinutesbyHour"></a>
 Total Intensity by hour is the value calculated by adding all the minute-level intensity values that occurred within the hour.
 
@@ -322,19 +325,25 @@ This is the histogram showing the distribution of total steps in a day per user
 ![image](https://user-images.githubusercontent.com/85982220/198891271-8a7c8317-ad2a-4b70-8032-9904097e07ef.png)
 
 
-&rarr; Most users have a daily total steps of 5000 - 10000 steps and the frequency of users walking less than 5,000 steps a day is still quite high.
+Most users have a daily total steps of 5000 - 10000 steps and the frequency of users walking less than 5,000 steps a day is still quite high.
+
+
+&rarr; Share this information with users, shows that they are lacking in exercise and remind them that lack of exercise is a major cause of health problem. 
+
+
+&rarr; I recommend creating fitness challenges to encourage users to walk more
 #### Total Steps by weekday <a name="TotalStepsbyWeekday"></a>
 The chart below shows the the average total steps in a day per user across the days of the week
-We see that Tuesday is the day when the highest number of total steps. Then followed by Wednesday and Thursday which are the 2nd and 3rd highest total steps.
+We see that Saturday is the day when the highest number of total steps. Then followed by Tuesday which are the 2nd total steps.
 
 
-![image](https://user-images.githubusercontent.com/85982220/198891429-beafe090-acc6-44c1-a92b-d5e8612a57b3.png)
+![image](https://user-images.githubusercontent.com/85982220/198960480-2aaaf5b7-a884-4f2c-ad1e-0068d3f2d2a7.png)
 
 
-The days with the least calories burned are Sunday and Monday.
+The day with the least calories burned is Sunday.
 
 
-![image](https://user-images.githubusercontent.com/85982220/198891443-ccafc854-b097-4054-b8a2-4f1754fb3762.png)
+![image](https://user-images.githubusercontent.com/85982220/198960532-f6e4f79e-59e3-4bd6-a6d9-3c43e64244fc.png)
 
 
 #### Total Steps by hour in a day <a name="TotalStepsbyHour"></a>

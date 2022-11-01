@@ -94,7 +94,7 @@ The result shows that there are no data points that are outside the range from 3
 
 
 ## 4. Analyze <a name="Analyze"></a>
-Click here to see the code of SQL in this analyze step.
+[Click here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Google%20Data%20Analytics%20Professional%20Certificate%20Capstone%20Project/SQL_AnalyzePharse.sql) to see the code of SQL in this analyze step.
 
 
 [4.1. BMI](#BMI)

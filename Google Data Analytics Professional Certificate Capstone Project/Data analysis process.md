@@ -128,7 +128,7 @@ According to [Centers for Disease Control and Prevention](https://www.cdc.gov/ob
 As we discuss earlier, there are only 8 users in the WeightLogInfor table.
 
 
-This is the donut chart showing the latest BMI of those 8 users. There are 3 users with normal BMI, 4 users falls within the overweight range and 1 within the obesity range. 
+This is the donut chart showing the latest BMI of those 8 users. There are 3 users with normal BMI, 4 users fall within the overweight range and 1 within the obesity range. 
 
 
 ![image](https://user-images.githubusercontent.com/85982220/198885214-70f915c9-0f9b-405a-ab27-f33ffbece38e.png)
@@ -144,10 +144,10 @@ This is the donut chart showing the latest BMI of those 8 users. There are 3 use
   - For users fall within the obesity range: Provide Obesity Treatment based on their specific condition. We need a detailed personalized guidance on their diet, exercise and mental health for them.
   
   
-  &rarr; We need to investigate the Weight Status of most customers to know which group of our customers mainly belong to. Then develop marketing campaigns suitable for that key customer group.
-
-
-&rarr; Of course, the amount of data above is too small to analyze. We should retest this section with a larger amount of data.
+  &rarr; Of course, the amount of data above is too small to analyze. We should retest this section with a larger amount of data.
+  
+  
+  &rarr; We need to investigate the Weight Status of most users to know which group our users mainly belong to. Then develop marketing campaigns suitable for that group.
 
 
 ### 4.2. Sleeptime <a name="Sleeptime"></a>

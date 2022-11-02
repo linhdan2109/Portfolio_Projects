@@ -248,7 +248,7 @@ The time users spend in a day on 4 states of physical activity is:
 -  Take a walk for about 30 minutes at weekend.
 
 
-&rarr; For the marketing stragegy, We can give them coupon codes for the Bellabeat products or reduce the price of bellabeat Membership Program or a small gift if they complete enough tasks.
+&rarr; For the marketing strategy, We can give them coupon codes for the Bellabeat products or reduce the price of bellabeat Membership Program or a small gift if they complete enough tasks.
 #### %Active Minutes by Weekday <a name="ActiveMinutesbyWeekday"></a>
 
 
@@ -264,7 +264,7 @@ Look at the bar graph below, we see that on Friday and Saturday users spent less
 ![image](https://user-images.githubusercontent.com/85982220/198888411-e3d3701b-68f7-4843-8610-f0d338befca5.png)
 
 
-But that motivation usually doesn't last long. On Sundays users tend to be more sedentary than working day.
+But that motivation usually doesn't last long. On Sunday, users tend to be more sedentary than working day.
 
 
 ![image](https://user-images.githubusercontent.com/85982220/198888419-59405d89-5a60-462e-946a-4f8985557cc9.png)
@@ -296,7 +296,7 @@ Now look at the line chart to to have a clearer view of the users' intensity tre
 - Then the intensity continued to increase slowly until 11 am. 
 - Intensity tends to decrease slightly from 12pm to 3pm. This is the time when they take a light break from an active morning
 - Then the intensity increases again and peaks between 5pm and 7pm. The chart shows that users are most active in the time frame from 5pm to 7pm during the day.
-- Finanly, the intensity tends to decrease sharply (from 19 to 4) in the time frame from 8 pm to 4 am. 
+- Finally, the intensity tends to decrease sharply (from 19 to 4) in the time frame from 8 pm to 4 am. 
 This is the user's time to rest after a day.
 
 
@@ -317,7 +317,7 @@ The correlogram shows that users who spend much time in sedentary minutes tend t
 
 **Recommendation:**
 
-&rarr; With the group of users who have a sedentary lifestyle, Bellabeat can focus the advertisement on how sedentary behavior can affect sleep. We should email them studies have shown that exercise improves sleep quality, and sugest them some Membership program with light exercise.
+&rarr; With the group of users who have a sedentary lifestyle, Bellabeat can focus the advertisement on how sedentary behavior can affect sleep. We should email them studies have shown that exercise improves sleep quality, and suggest them some Membership program with light exercise.
 
 
 ### 4.4. Calories <a name="Calories"></a>
@@ -444,4 +444,62 @@ We see that there are still many cases where the user does not wear the smart de
 
 ## 5. Share <a name="Share"></a>
 ## 6. Act <a name="Act"></a>
+### 6.1. Conclusion:
+
+
+- Majority of users have good sleep quality. But there are 2 users who have problems with their sleep.
+
+
+- There is no difference in the %SleeptimeInBed ratio (sleep quality) of the users between the days of the week
+ 
+ 
+- User spend 19.5 hours (about 81% time of the day) in Sedentary minutes, 4 hours in lightly active minutes, 15 minutes in fairly active minutes and 30 minutes in very active minutes.
+
+
+- After the end of a working week, users are motivated to become more active. But that motivation usually doesn't last long.
+ 
+
+- Users are most active, have the highest calories burned and take the most steps in the time frame from 5 PM to 7 PM.
+
+
+- The trend of average total steps was similar to the trend of user's average intensity and the trend of average calories burned.
+
+
+- Most users have a daily total steps of 5000 - 10000 steps. The frequency of users walking less than 5,000 steps a day is still quite high
+
+
+- Users who spend much time in sedentary minutes tend to sleep less.
+
+
+- There are still many cases where the user does not wear the smart device for full day.
+
+
+### 6.2. Recommendations:
+
+
+- We should retest this section with a larger amount of data.
+
+
+- Develop the membership program with personalized guidance on nutrition, activity, and sleep that **match their BMI**.
+
+
+- Research and construct a program that offer solutions to help them **improve their sleep**. Help our users figure out what time to go to bed based on their wake up time and their percentage %Sleeptime In bed. 
+
+
+- Adding small tasks in the Bellabeat membership program to encourage users to **reduce the sedentary minutes, increase time in lightly active**. Give them coupon codes for the Bellabeat products or reduce the price of bellabeat Membership Program or a small gift if they complete enough tasks.
+
+
+- Every Saturday night and Sunday morning, creating post on social media about the benefits of being active, **motivating users to be more active on Sunday**.
+
+
+- Send email and notification to remind users to **watch the exercise instructions in Bellabeat Membership Product between 5pm to 7pm.**
+
+
+- **Let's users know that they are lacking in exercise** and remind them that lack of exercise is a major cause of health problem. 
+
+
+- Create fitness challenges to **encourage users to walk more** and there will be a reward for them after reaching the required number of kilometers.
+
+
+- Send notification to **remind the user to wear the device** when they don't wear the smart device in an hour. Provide the alarm for users to set that will ring to remind users to wear their smart device.
 

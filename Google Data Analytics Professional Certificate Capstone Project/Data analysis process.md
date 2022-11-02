@@ -443,6 +443,44 @@ We see that there are still many cases where the user does not wear the smart de
 
 
 ## 5. Share <a name="Share"></a>
+- [Power BI dashboard](#PowerBI)
+- [Tableau Dashboard](#Tableau)
+
+
+### 5.1. Power BI dashboard <a name="PowerBI"></a>
+[Click here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Google%20Data%20Analytics%20Professional%20Certificate%20Capstone%20Project/PowerBI_BellabeatDashboard.pbix) to download the Power BI dashboard
+
+
+![image](https://user-images.githubusercontent.com/85982220/199404529-be037a63-4b69-4dea-9d9b-2a9efc0e7bbc.png)
+
+
+![image](https://user-images.githubusercontent.com/85982220/199404594-98fd37ff-4082-4e00-8acb-1f0cb7a593ec.png)
+
+
+![image](https://user-images.githubusercontent.com/85982220/199404636-7c0ebee0-9774-4823-9dae-ddab6e09775e.png)
+
+
+![image](https://user-images.githubusercontent.com/85982220/199404671-ef87ba9d-01dd-400f-b802-124b7f6f47e7.png)
+
+
+![image](https://user-images.githubusercontent.com/85982220/199404715-43ce1e22-9d1e-4d13-ab2e-88f4c63cec7c.png)
+
+
+![image](https://user-images.githubusercontent.com/85982220/199404756-a5e1efd7-52a7-4bb2-8ec3-803765c86c92.png)
+
+
+![image](https://user-images.githubusercontent.com/85982220/199404798-bc28c486-0a16-4810-a71b-5bdb16bb0875.png)
+
+
+![image](https://user-images.githubusercontent.com/85982220/199404846-7945511e-d12b-444d-b0c3-33b174f8099f.png)
+
+
+![image](https://user-images.githubusercontent.com/85982220/199404883-65ef7d24-0c5f-4972-a2c8-492ace2c67b5.png)
+
+
+### 5.2. Tableau Dashboard <a name="Tableau"></a>
+
+
 ## 6. Act <a name="Act"></a>
 ### 6.1. Conclusion:
 

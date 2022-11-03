@@ -472,7 +472,7 @@ We see that there are still many cases where the user does not wear the smart de
 ![image](https://user-images.githubusercontent.com/85982220/199404846-7945511e-d12b-444d-b0c3-33b174f8099f.png)
 
 
-![image](https://user-images.githubusercontent.com/85982220/199404883-65ef7d24-0c5f-4972-a2c8-492ace2c67b5.png)
+![image](https://user-images.githubusercontent.com/85982220/199652324-9fdde249-2ae4-4292-a5d4-d6e0cad1dff7.png)
 
 
 ## 6. Act <a name="Act"></a>

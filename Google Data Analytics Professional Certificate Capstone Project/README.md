@@ -10,7 +10,7 @@
 # 3. Skills Acquired
 - Initial analysis using Microsoft Excel.
 - Data cleaning, validation and exploration using SQL.
-- Data Visualization using Power BI and Tableau.
+- Data Visualization using Power BI.
 
 # 4. Scenario
 ## The Company: Bellabeat

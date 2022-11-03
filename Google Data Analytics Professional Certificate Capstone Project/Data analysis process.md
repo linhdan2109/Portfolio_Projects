@@ -443,11 +443,8 @@ We see that there are still many cases where the user does not wear the smart de
 
 
 ## 5. Share <a name="Share"></a>
-- [Power BI presentation](#PowerBI)
-- [Tableau Dashboard](#Tableau)
 
 
-### 5.1. Power BI presentation <a name="PowerBI"></a>
 [Click here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Google%20Data%20Analytics%20Professional%20Certificate%20Capstone%20Project/PowerBI_BellabeatDashboard.pbix) to download the Power BI dashboard
 
 
@@ -476,9 +473,6 @@ We see that there are still many cases where the user does not wear the smart de
 
 
 ![image](https://user-images.githubusercontent.com/85982220/199404883-65ef7d24-0c5f-4972-a2c8-492ace2c67b5.png)
-
-
-### 5.2. Tableau Dashboard <a name="Tableau"></a>
 
 
 ## 6. Act <a name="Act"></a>

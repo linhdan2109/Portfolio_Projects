@@ -61,8 +61,9 @@ As we can see, there are text values like '' and 'null' in the exclusions and ex
 
 #### runner_orders table
 - The text values '' and 'null' in the pickup_time, distance, duration and cancellation columns need to be cconverted to NULL value.
-- In the distance column, we need to remove the 'km' string and convert the column format to float.
-- In the duration column, I remove the string: 'minutes', 'mins', 'minute' and change the format of the column to float.
+- In pickup_time column, change the data type from VARCHAR to DATETIME
+- In the distance column, remove the 'km' string and convert the column format to FLOAT.
+- In the duration column, remove the string: 'minutes', 'mins', 'minute' and change the format of the column to FLOAT.
 
 
 | order_id | runner_id | pickup_time         | distance | duration   | cancellation             |

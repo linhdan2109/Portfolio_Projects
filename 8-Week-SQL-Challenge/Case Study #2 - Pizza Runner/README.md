@@ -19,10 +19,9 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 ### Available Data
 Danny has prepared for us an entity relationship diagram of his database design but requires further assistance to clean his data and apply some basic calculations so he can better direct his runners and optimise Pizza Runner’s operations.
 
-All datasets exist within the pizza_runner database schema - be sure to include this reference within your SQL scripts as you start exploring the data and answering the case study questions.
+All datasets exist within the pizza_runner database schema.
 
-
-Danny has shared with you 6 key datasets for this case study:
+Danny has shared with us 6 key datasets for this case study:
 - runners: The table shows the registration_date for each new runner
 - customer_orders: Customer pizza orders are captured in the customer_orders table with 1 row for each individual pizza that is part of the order.
 - runner_orders: After each orders are received through the system - they are assigned to a runner - however not all orders are fully completed and can be cancelled by the restaurant or the customer.

@@ -10,7 +10,7 @@ and identify things I need to improve for the future.
 - Using SQL to create the schema, tables and loading data.
 
 # 3. Skills Acquired
-- Getting Real-World SQL Experience:
+- Getting Real-World SQL Experience
 - Building databases and table
 - Creating views, CTE
 - Writing optimized SQL queries

@@ -18,7 +18,11 @@
 
 [6. Act](#Act)
 
-## 1. Ask <a name="Ask"></a>
+
+<div id='Ask'/>
+
+
+## 1. Ask
 ### Identify the business task:
 - Focus on a Bellabeat product: "Bellabeat membership" and analyze smart device usage data in order to gain insight into how people are already using their smart devices. 
 - Then, using this information, make high-level recommendations for how these trends can inform Bellabeat marketing strategy for the "Bellabeat membership" 
@@ -29,7 +33,11 @@ product.
 2. How could these trends apply to Bellabeat customers?
 3. How could these trends help influence Bellabeat marketing strategy?
 
-## 2. Prepare <a name="Prepare"></a>
+
+<div id='Prepare'/>
+
+
+## 2. Prepare 
 ### Data Source:
 Use public data that explores smart device users’ daily habits: [FitBit Fitness Tracker Data](https://www.kaggle.com/datasets/arashnic/fitbit). 
 The data has been made available by [Mobius](https://www.kaggle.com/arashnic)
@@ -40,6 +48,10 @@ The data has been made available by [Mobius](https://www.kaggle.com/arashnic)
 This Kaggle data set contains personal fitness tracker from thirty fitbit users. Thirty eligible Fitbit users consented to the submission of
 personal tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring. It includes
 information about daily activity, steps, and heart rate that can be used to explore users’ habits
+
+
+<div id='Process'/>
+
 
 ## 3. Process <a name="Process"></a>
 I have used Microsoft Excel and SQL for data validation and cleaning.
@@ -93,7 +105,10 @@ The result shows that there are no data points that are outside the range from 3
 ![image](https://user-images.githubusercontent.com/85982220/198982457-6187c8b7-f2d0-4486-9f73-abef8f5ae5ec.png)
 
 
-## 4. Analyze <a name="Analyze"></a>
+<div id='Analyze'/>
+
+
+## 4. Analyze 
 [Click here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Google%20Data%20Analytics%20Professional%20Certificate%20Capstone%20Project/SQL_AnalyzePharse.sql) to see the code of SQL in this analyze step.
 
 
@@ -115,9 +130,17 @@ The result shows that there are no data points that are outside the range from 3
 [4.6. Frequency of smart device use](#Frequency)
 
 
-### 4.1. BMI <a name="BMI"></a>
+<div id='BMI'/>
+
+
+### 4.1. BMI
 - [BMI by UserID](#BMIbyUser)
-#### BMI by UserID <a name="BMIbyUser"></a>
+
+
+<div id='BMIbyUser'/>
+
+
+#### BMI by UserID
 According to [Centers for Disease Control and Prevention](https://www.cdc.gov/obesity/basics/adult-defining.html#:~:text=If%20your%20BMI%20is%20less,falls%20within%20the%20obesity%20range.):
 - If your BMI is less than 18.5, it falls within the underweight range.
 - If your BMI is 18.5 to <25, it falls within the healthy weight range.
@@ -150,12 +173,20 @@ This is the donut chart showing the latest BMI of those 8 users. There are 3 use
   &rarr; We need to investigate the Weight Status of most users to know which group our users mainly belong to. Then develop marketing campaigns suitable for that group.
 
 
-### 4.2. Sleeptime <a name="Sleeptime"></a>
+<div id='Sleeptime'/>
+
+
+### 4.2. Sleeptime
 - [%Sleeptime In Bed by UserID](#SleeptimebyUserID)
 - [%Sleeptime In Bed by Weekday](#SleeptimebyWeekday)
 
 From the data, I find that our users spend about 91% of time in bed to sleep at night.
-#### %Sleeptime In Bed by UserID <a name="SleeptimebyUserID"></a>
+
+
+<div id='SleeptimebyUserID'/>
+
+
+#### %Sleeptime In Bed by UserID 
 Now lets take a look at each user's Sleeptime. There are 24 users in the SleepDay table.
 
 
@@ -176,6 +207,11 @@ We find that the majority of users have good sleep quality (most users sleep abo
 **Recommendation:**
 
 &rarr; For the Bellabeat membership product, we should research and construct a program that offer solutions to help them improve their sleep. This program not only help people with sleep problems but also help normal people to have a deeper and better sleep. 
+
+
+<div id='SleeptimebyWeekday'/>
+
+
 #### %Sleeptime In bed by Weekday <a name="SleeptimebyWeekday"></a>
 The following table shows exact number of the average sleep hours of a user over the days of the week. 
 
@@ -214,7 +250,12 @@ From the table, we see that there was not much difference in the sleep quality o
 
 
 &rarr; We can help our users figure out what time to go to bed based on their wake up time and their percentage %Sleeptime In bed. We also send notifications reminding them to go to bed on time.
-### 4.3. Active minutes <a name="Activeminutes"></a>
+
+
+<div id='Activeminutes'/>
+
+
+### 4.3. Active minutes
 - [%Active Minutes by Weekday](#ActiveMinutesbyWeekday)
 - [%Intensity by hour in a day](#ActiveMinutesbyHour)
 - [Total Minutes as sleep vs Sedentary Minutes](#TotalMinutesassleepvsSedentaryMinutes)
@@ -249,7 +290,12 @@ The time users spend in a day on 4 states of physical activity is:
 
 
 &rarr; For the marketing strategy, We can give them coupon codes for the Bellabeat products or reduce the price of bellabeat Membership Program or a small gift if they complete enough tasks.
-#### %Active Minutes by Weekday <a name="ActiveMinutesbyWeekday"></a>
+
+
+<div id='ActiveMinutesbyWeekday'/>
+
+
+#### %Active Minutes by Weekday
 
 
 There is a slightly different in %Active Minutes between days of the week.
@@ -277,7 +323,12 @@ But that motivation usually doesn't last long. On Sunday, users tend to be more 
 
 
 &rarr; I also recommend creating challenges on every Sunday with hashtag on social media (Ex: #ActiveOnSundayWithBellabeat). Every week is a different challenge, different exercise to create excitement for users.
-#### %Intensity by hour in a day <a name="ActiveMinutesbyHour"></a>
+
+
+<div id='ActiveMinutesbyHour'/>
+
+
+#### %Intensity by hour in a day
 Total Intensity by hour is the value calculated by adding all the minute-level intensity values that occurred within the hour.
 
 
@@ -305,7 +356,10 @@ This is the user's time to rest after a day.
 &rarr; I find that users are highly active between 5 pm and 7 pm, we should send email and notification to remind users to use Bellabeat Membership Product to watch the exercise instructions in product between 5pm to 7pm.
 
 
-#### Total Minutes as sleep vs Sedentary Minutes <a name="TotalMinutesassleepvsSedentaryMinutes"></a>
+<div id='TotalMinutesassleepvsSedentaryMinutes'/>
+
+
+#### Total Minutes as sleep vs Sedentary Minutes
 Following is the correlogram of Total minutes as sleep compare with total minutes in sedentary activity:
 
 
@@ -320,11 +374,19 @@ The correlogram shows that users who spend much time in sedentary minutes tend t
 &rarr; With the group of users who have a sedentary lifestyle, Bellabeat can focus the advertisement on how sedentary behavior can affect sleep. We should email them studies have shown that exercise improves sleep quality, and suggest them some Membership program with light exercise.
 
 
-### 4.4. Calories <a name="Calories"></a>
+<div id='Calories'/>
+
+
+### 4.4. Calories
 - [Calories by userId](#CaloriesbyUserId)
 - [Calories by weekday](#CaloriesbyWeekday)
 - [Calories by hour in a day](#CaloriesbyHour)
-#### Calories by userId <a name="CaloriesbyUserId"></a>
+
+
+<div id='CaloriesbyUserId'/>
+
+
+#### Calories by userId
 There are variation in calories burning among users. The following chart is a histogram showing the distribution of the burning calorie among users by day
 
 
@@ -340,7 +402,10 @@ There are variation in calories burning among users. The following chart is a hi
 &rarr; We should collect all of that information of our users and give them the most suitable calorie level. From that, the Bellabeat Membership Product can suggest the diet and exercise guide to achieve that calorie level.
 
 
-#### Calories by weekday <a name="CaloriesbyWeekday"></a>
+<div id='CaloriesbyWeekday'/>
+
+
+#### Calories by weekday
 The chart below shows the the average burning calories in a day per user across the days of the week.
 We see that Tuesday is the day when the highest number of calories are burned. Then followed by Saturday and Friday which are the 2nd and 3rd highest calories burned.
 
@@ -354,7 +419,10 @@ The days with the least calories burned are Sunday and Thursday.
 ![image](https://user-images.githubusercontent.com/85982220/198890551-dd355409-b6e7-4e86-8ae0-1d2bf05564af.png)
 
 
-#### Calories by hour in a day <a name="CaloriesbyHour"></a>
+<div id='CaloriesbyHour'/>
+
+
+#### Calories by hour in a day
 Trend shows the burning calories between hours in a day is showed in the line chart below
 
 
@@ -364,11 +432,19 @@ Trend shows the burning calories between hours in a day is showed in the line ch
 I found that the trend of average calories burned was similar to the trend of user's average intensity. This is also understandable because the higher the intensity of activity, the more calories burned. 
 
 
-### 4.5. Total Steps <a name="TotalSteps"></a>
+<div id='TotalSteps'/>
+
+
+### 4.5. Total Steps
 - [Total Steps by userId](#TotalStepsbyUserId)
 - [Total Steps by weekday](#TotalStepsbyWeekday)
 - [Total Steps by hour in a day](#TotalStepsbyHour)
-#### Total Steps by userId <a name="TotalStepsbyUserId"></a>
+
+
+<div id='TotalStepsbyUserId'/>
+
+
+#### Total Steps by userId
 As well as the number of calories burned, the total number of steps also varies between individuals. 
 This is the histogram showing the distribution of total steps in a day per user
 
@@ -385,7 +461,12 @@ Most users have a daily total steps of 5000 - 10000 steps and the frequency of u
 
 
 &rarr; Create fitness challenges to encourage users to walk more and there will be a reward for them after reaching the required number of kilometers.
-#### Total Steps by weekday <a name="TotalStepsbyWeekday"></a>
+
+
+<div id='TotalStepsbyWeekday'/>
+
+
+#### Total Steps by weekday
 The chart below shows the the average total steps in a day per user across the days of the week
 We see that Saturday is the day when the highest number of total steps. Then followed by Tuesday which are the 2nd total steps.
 
@@ -399,7 +480,10 @@ The day with the least calories burned is Sunday.
 ![image](https://user-images.githubusercontent.com/85982220/198960532-f6e4f79e-59e3-4bd6-a6d9-3c43e64244fc.png)
 
 
-#### Total Steps by hour in a day <a name="TotalStepsbyHour"></a>
+<div id='TotalStepsbyHour'/>
+
+
+#### Total Steps by hour in a day
 Trend shows the total steps between hours in a day is showed in the line chart below:
 
 
@@ -409,7 +493,10 @@ Trend shows the total steps between hours in a day is showed in the line chart b
 I found that the trend of average total steps was similar to the trend of user's average intensity and the trend of average calories burned. 
 
 
-### 4.6. Frequency of smart device use <a name="Frequency"></a>
+<div id='Frequency'/>
+
+
+### 4.6. Frequency of smart device use
 Following is the histogram showing the Frequency of smart device use. 
 
 
@@ -442,7 +529,10 @@ We see that there are still many cases where the user does not wear the smart de
 &rarr; With the current data set, it is not possible to check what time of day user usually not wear the device. With a more complete data set, we should analyze in what time users are not often wearing the device. From there, we will find out causes and appropriate solutions to help users not take off the device. 
 
 
-## 5. Share <a name="Share"></a>
+<div id='Share'/>
+
+
+## 5. Share
 
 
 [Click here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Google%20Data%20Analytics%20Professional%20Certificate%20Capstone%20Project/PowerBI_BellabeatDashboard.pbix) to download the Power BI dashboard
@@ -475,7 +565,10 @@ We see that there are still many cases where the user does not wear the smart de
 ![image](https://user-images.githubusercontent.com/85982220/199652324-9fdde249-2ae4-4292-a5d4-d6e0cad1dff7.png)
 
 
-## 6. Act <a name="Act"></a>
+<div id='Act'/>
+
+
+## 6. Act
 ### 6.1. Conclusion:
 
 

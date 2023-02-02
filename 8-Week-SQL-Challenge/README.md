@@ -17,7 +17,7 @@ and identify things I need to improve for the future.
 - Combining and merging multiple table using JOIN and UNION
 - Creating VIEW, CTE & SUBQUERIES
 - Using WINDOW FUNCTION
-- 
+
 
 # 4. Case studies
 - [Case Study #1 - Danny's Diner](https://github.com/linhdan2109/Portfolio_Projects/tree/main/8-Week-SQL-Challenge/Case%20Study%20%231%20-%20Danny's%20Diner)

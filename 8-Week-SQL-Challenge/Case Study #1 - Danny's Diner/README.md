@@ -56,3 +56,8 @@ non-member purchases so he expects null ranking values for the records when cust
 
 
 ![image](https://user-images.githubusercontent.com/85982220/216118366-5d43cd77-b08c-44b7-b007-4d5e8d291f8c.png)
+
+## Solution
+- [Click here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/8-Week-SQL-Challenge/Case%20Study%20%231%20-%20Danny's%20Diner/Case%201%20-%20Solution.md) to view my solution of this case study!
+- [Click here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/8-Week-SQL-Challenge/Case%20Study%20%231%20-%20Danny's%20Diner/Case%201%20-%20SQLcode.sql) to get my SQL code file for the solution of this case study!
+- [Click here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/8-Week-SQL-Challenge/Case%20Study%20%231%20-%20Danny's%20Diner/Case%201%20-%20Data.sql) to get the SQL file comtains the data of this case study!

@@ -1,6 +1,6 @@
 # 1. Introduction
 - This Challenge consists of 8 different SQL challenges. More information about the Challenges [is here](https://8weeksqlchallenge.com/)
-- I had to use SQL to answer key business questions.
+- I used SQL to answer key business questions.
 - The purpose I did the 8 weeks SQL Challenge is to test my SQL skill on diverse mini cases which covers a wide range of SQL techniques
 and identify things I need to improve for the future.
 

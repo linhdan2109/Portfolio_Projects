@@ -17,7 +17,10 @@
 [D. PRICING AND RATINGS](#D)
 
 
-## Data cleaning <a name="DC"></a>
+<div id='DC'/>
+
+
+## Data cleaning
 ### 1. customer_orders table
 - There are text values like '' and 'null' in the exclusions and extras columns. We need to convert these 2 values to NULL value.
 - Create a view that contain the copy of the customer_orders table in order to clean and prevent loss of data.
@@ -107,7 +110,10 @@ GO
 ![image](https://user-images.githubusercontent.com/85982220/216332151-bd026002-e4de-404c-8108-cb07cf14cd73.png)
 
 
-## A. PIZZA METRICS <a name="A"></a>
+<div id='A'/>
+
+
+## A. PIZZA METRICS
 ### 1. How many pizzas were ordered?
 ```sql
 SELECT COUNT(*) AS total_pizzas_ordered 
@@ -276,7 +282,11 @@ ORDER BY DATEPART(dw, order_time);
 | 6       | 1            |
 | 7       | 5            |
 
-## B. RUNNER AND CUSTOMER EXPERIENCE <a name="B"></a>
+
+<div id='B'/>
+
+
+## B. RUNNER AND CUSTOMER EXPERIENCE
 ### 1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
 ```sql
 SELECT 
@@ -402,7 +412,11 @@ ORDER BY runner_id;
 | 2         | 75%                    |
 | 3         | 50%                    |
 
-## C. INGREDIENT OPTIMISATION <a name="C"></a>
+
+<div id='C'/>
+
+
+## C. INGREDIENT OPTIMISATION
 ### Create a view that Split toppings field in the pizza_recipes
 ```sql
 DROP VIEW IF EXISTS pizza_recipes_split;
@@ -566,7 +580,11 @@ ORDER BY COUNT(CTE.topping_id) DESC;
 | Tomato Sauce | 3               |
 | Tomatoes     | 3               |
 
-## D. PRICING AND RATINGS <a name="D"></a>
+
+<div id='D'/>
+
+
+## D. PRICING AND RATINGS
 ### 1. If a Meat Lovers pizza costs $12 and Vegetarian costs $10 and there were no charges for changes. How much money has Pizza Runner made so far if there are no delivery fees?
 ```sql
 SELECT

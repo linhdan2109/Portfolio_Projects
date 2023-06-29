@@ -1,4 +1,4 @@
-# :pear: Case Study #3: Pizza Runner
+# :stew: Case Study #3: Foodie-Fi
 ![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/630af9b1-80c4-4ca6-a82f-2524b2bcc65f)
 
 

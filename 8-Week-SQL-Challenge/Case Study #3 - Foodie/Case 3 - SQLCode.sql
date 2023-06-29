@@ -165,5 +165,3 @@ WHERE p_pro.plan_name = 'pro monthly'
 	AND DATEDIFF(day, s_pro.start_date, s_basic.start_date) > 0
 	AND DATEPART(year, s_basic.start_date) = 2020
 
-
--- C. Challenge Payment Question

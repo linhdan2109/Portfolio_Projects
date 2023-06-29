@@ -35,7 +35,7 @@ bwght = 114.8178 + 0.0963faminc + 3.0365male – 0.4666cigs + 0.1439cigtax
 Equation (2)
 ```
 - Hypothesis:
-	- H0: d1 = 0, d2 = 0 ( (1) is correctly specified )
+	- H0: d1 = 0, d2 = 0 ( Equation (1) is correctly specified )
 	- H1: H0 is not true 
 - R code:
 ``` R

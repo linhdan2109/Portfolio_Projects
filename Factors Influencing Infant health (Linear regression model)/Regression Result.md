@@ -45,7 +45,7 @@ resettest(bwght_res)
 - Result:
 
 
-The RESET statistic in (2) have p-value = 0.3759 > α=0.05  
+The RESET statistic in Equation (2) have p-value = 0.3759 > α=0.05  
 
 
 Thus, we do not reject H0 at the 5% significance level

@@ -3,6 +3,11 @@ This repository contains my personal portfolio projects to show off skills, who 
 
 # List of Projects
 
+## End to End project
+1. [Marketing Analytics](https://github.com/linhdan2109/Portfolio_Projects/tree/main/Google%20Data%20Analytics%20Professional%20Certificate%20Capstone%20Project): This is the project I have done at the end of the Google Data Analytics Professional Course. Following the data analysis process taught in the course, I effectively addressed key business questions. This process involved six essential steps: Ask, Prepare, Process, Analyze, Share, and Act. By applying these steps, I was able to gain valuable insights and provide actionable recommendations to support Bellabeat's marketing strategies and decision-making processes.
+
+2. [Sales analysis](https://github.com/linhdan2109/Portfolio_Projects/tree/main/Sales%20analysis): This Sales Analysis Project aims to investigate the sales data to extract valuable insights, drive informed decisions, and optimize sales strategies. By examining key performance indicators, market trends, customer behaviors, and product preferences, this project seeks to uncover hidden patterns that can guide us towards maximizing revenue, enhancing customer satisfaction
+
 ## Machine learning
 
 1. [Fraud Detection](https://nbviewer.org/github/linhdan2109/Portfolio_Projects/blob/main/Fraud%20Detection/imbalanced-dataset-fraud-detection.ipynb): The objective of this project is to develop a fraud detection model using machine learning techniques. I will employ a variety of machine learning algorithms, including logistic regression, random forests, and k nearest neighbor. Through model training and evaluation, I will assess the performance of each algorithm in terms of accuracy, precision, recall, F1 score and AUPRC. This evaluation will enable us to identify the most effective model for fraud detection. Additionally, I will address the challenge of imbalanced datasets, where fraudulent transactions are typically a minority class.
@@ -22,8 +27,4 @@ This repository contains my personal portfolio projects to show off skills, who 
 2. [Case Study #2: Pizza Runner](https://github.com/linhdan2109/Portfolio_Projects/tree/main/8-Week-SQL-Challenge/Case%20Study%20%232%20-%20Pizza%20Runner): Use SQL to clean the data and apply some basic calculations to optimise the store's operations.
 
 3. [Case Study #3: Foodie-Fi](https://github.com/linhdan2109/Portfolio_Projects/tree/main/8-Week-SQL-Challenge/Case%20Study%20%233%20-%20Foodie): This case study focuses on using subscription style digital data to answer important business questions.
-
-
-## End to End project
-1. [Google Data Analytics Professional Certificate Capstone Project](https://github.com/linhdan2109/Portfolio_Projects/tree/main/Google%20Data%20Analytics%20Professional%20Certificate%20Capstone%20Project): This is the project I have done at the end of the Google Data Analytics Professional Course. Following the data analysis process taught in the course, I effectively addressed key business questions. This process involved six essential steps: Ask, Prepare, Process, Analyze, Share, and Act. By applying these steps, I was able to gain valuable insights and provide actionable recommendations to support Bellabeat's marketing strategies and decision-making processes.
 

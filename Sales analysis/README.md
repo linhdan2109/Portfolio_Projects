@@ -143,7 +143,7 @@ _Here is our Data Model_
  ## Data analysis
 
 
-**Create a Power BI dashboard**
+### Create a Power BI dashboard
 
 
 Creating an annual sales dashboard in Power BI can be a transformative endeavor, enabling us to gain deeper insights into our sales performance and trends over the course of a year. By meticulously crafting a dashboard that effectively presents key sales metrics, we can make informed decisions and optimize our business strategy. ([Click here to download the dashboard in Power BI](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Sales%20analysis/Sales%20Dashboard.pbix))
@@ -153,6 +153,125 @@ _This is the annual sales dashboard in 2016_
 
 
 ![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/a05ad7bd-3a45-4c50-9dd3-7ae6df6bc2ed)
+
+
+### Overall annual sales of ABC Shop in 2016
+- _Performance metrics:_
+  - _Total Sales:_ 1.96M USD (0.86% yoy increase)
+  - _Total Profit:_ 0.72M USD (0.88% yoy decrease)
+  - _Total Quantity:_ 7900 unit (3.19% yoy increase)
+  - _Profit Margin:_ 0.37 (1.72% yoy decrease)
+  - _Sales per Customer:_ 97.94K USD (0.86% yoy increase)
+  - _Average Order Value:_ 1.25K USD (1.18% yoy increase)
+-  _Sales by Channel:_  The wholesale channel demonstrates its prowess as a key revenue driver for the business (Account for 55% of the total sales)
+- _Sales by customers:_ We can see that both total sales and profitability exhibit variations.
+  - Total sales range from 70K to 130K USD
+  - Total profit range from 27K to 49K USD
+- _Sales by Products:_ Shoes are the top-selling product (288K USD), while dress shirts have the lowest revenue among the product (197K USD)
+- _Sales by States:_ There is a disparity in sales across different states.
+- _Sales by Month:_ The monthly sales figures fluctuate between 100K and 200K USD. There is an increase in sales during the months of March, June, and October.
+
+
+The objective of sales analysis is to interpret sales data to gain insights into the performance, trends, and patterns of a business's sales activities. 
+
+
+So we have to analyze this data futher to understand customer behavior, identify successful sales strategies, optimize sales processes, and make informed decisions. So that we can enhance overall sales performance and profitability.
+
+
+### Total sales increase but Total Profit decrease in 2016 ?
+
+
+The situation where sales go up but profits go down happens because even though some products are selling well and making more money, the decrease in profit from other products is more significant. 
+
+
+Although the sell of some products are really well and bring in more money (Shoes, Sunglasses, Pants and Socks), the profit you make from those proct isn't enough to make up for the lower profit from other product (Shirt, Jeans, Hats and Dress Shirt).
+
+
+Lets take a look at the two tables below
+
+
+![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/ff17829e-a159-4dee-9b27-4821fb26f97c)
+
+
+Now we can understand clearly about the decrese in profit in 2016. We observe that two products: Dress shirts and Hats, experienced a significant decrease in profit in the year 2016. 
+
+
+**So, what are the factors causing the decline in profit of the two product ?**
+
+
+A decrease in profit can be attributed to either _a decline in sales_ or _an increase in the cost of goods sold (COGS)_. Let take a look closer at these factor in the two product:
+
+
+_1. Decrease in sales_
+
+
+![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/0df25a6e-5e82-4829-b684-801213048f64)
+
+
+It is noted that there is a decrease ranging from 50K to 60K USD in the sales of the two items. 
+
+
+**So, is this decrease in sales occurring with specific customers or all customers?**
+
+
+![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/11b78064-1ada-4422-898b-d327124608b1)
+
+
+So, there is a decrease in sales of Dress Shirt and Hats across the majority of customers. We can proceed to examine macroeconomic factors that collectively influence the behavior of the majority of customers and devise appropriate strategies based on the findings. For example, we can consider these factors that may decrease our sales:
+  - The increase in price (The average unit price of these product actually decrease in 2016 so this is not the root cause)
+  - Apperence of new competitors (Don't have the data to analyze)
+  - Shifting consumer preferences (Don't have the data to analyze)
+  - Economic recession (The sales of other products are good so this may not be the answer we're looking for)
+  - etc..
+
+
+_2. Increase in COGS_
+
+
+![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/937a84bf-6c50-4376-8725-9034ab683456)
+
+
+As you can see there are decrease in COGS. 
+
+
+Therefore in summary, the majority of the profit decrease is caused by the decline in sales of two products: Dress Shirt and Hats.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -152,7 +152,7 @@ Creating an annual sales dashboard in Power BI can be a transformative endeavor,
 _This is the annual sales dashboard in 2016_
 
 
-![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/da206155-e5d9-46d7-bfc1-d3a452391543)
+![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/a05ad7bd-3a45-4c50-9dd3-7ae6df6bc2ed)
 
 
 

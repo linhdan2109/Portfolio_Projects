@@ -117,7 +117,7 @@ This sales analysis project aims to uncover hidden trends and patterns within AB
 
  ## Data Cleaning 
 
-In this stage, I will load the dataset into Power BI and use Power Query and Dax fucntion to cleaning the data.Effective data cleaning is essential for obtaining meaningful insights and making informed decisions. Here's an overview of my data cleaning process:
+In this stage, I will load the dataset into Power BI and use Power Query and Dax fucntion to cleaning the data. Effective data cleaning is essential for obtaining meaningful insights and making informed decisions. Here's an overview of my data cleaning process:
 - Remove missing values if there are any.
 - Remove duplicates if there are any.
 - Make sure the data is in the correct data type.

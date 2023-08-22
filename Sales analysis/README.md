@@ -149,10 +149,13 @@ _Here is our Data Model_
 Creating an annual sales dashboard in Power BI can be a transformative endeavor, enabling us to gain deeper insights into our sales performance and trends over the course of a year. By meticulously crafting a dashboard that effectively presents key sales metrics, we can make informed decisions and optimize our business strategy. ([Click here to download the dashboard in Power BI](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Sales%20analysis/Sales%20Dashboard.pbix))
 
 
+_This is the annual sales dashboard in 2016_
+
+
 ![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/da206155-e5d9-46d7-bfc1-d3a452391543)
 
 
-_(This is the annual sales dashboard in 2016)_
+
 
 
 

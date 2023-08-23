@@ -266,7 +266,7 @@ _Dress Shirt Product:_
 - To address this situation, it's important to analyze customer feedback, conduct market research, and gather insights on changing consumer preferences. By understanding the underlying reasons, businesses can implement appropriate strategies such as adjusting pricing, improving product communication, enhancing product quality, or addressing any other issues that are contributing to the decline in both unit price and order quantity.
 
 
-
+### 2. Comparative Analysis: Compare sales performance across different product, customer segments, sales channels, and regions
 
 
 

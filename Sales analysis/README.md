@@ -143,7 +143,7 @@ _Here is our Data Model_
  ## Data analysis
 
 
-### Descriptive Analytics: Create a Power BI dashboard
+### Create a Power BI dashboard
 
 
 Creating an annual sales dashboard in Power BI can be a transformative endeavor, enabling us to gain deeper insights into our sales performance and trends over the course of a year. By meticulously crafting a dashboard that effectively presents key sales metrics, we can make informed decisions and optimize our business strategy. ([Click here to download the dashboard in Power BI](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Sales%20analysis/Sales%20Dashboard.pbix))
@@ -155,7 +155,7 @@ _This is the annual sales dashboard in 2016_
 ![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/a05ad7bd-3a45-4c50-9dd3-7ae6df6bc2ed)
 
 
-### Overall annual sales of ABC Shop in 2016
+### Descriptive Analytics: Overall annual sales of ABC Shop in 2016
 - _Performance metrics:_
   - _Total Sales:_ 1.96M USD (0.86% yoy increase)
   - _Total Profit:_ 0.72M USD (0.88% yoy decrease)

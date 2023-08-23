@@ -143,7 +143,7 @@ _Here is our Data Model_
  ## Data analysis
 
 
-### Create a Power BI dashboard
+### Descriptive Analytics: Create a Power BI dashboard
 
 
 Creating an annual sales dashboard in Power BI can be a transformative endeavor, enabling us to gain deeper insights into our sales performance and trends over the course of a year. By meticulously crafting a dashboard that effectively presents key sales metrics, we can make informed decisions and optimize our business strategy. ([Click here to download the dashboard in Power BI](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Sales%20analysis/Sales%20Dashboard.pbix))
@@ -178,7 +178,8 @@ The objective of sales analysis is to interpret sales data to gain insights into
 So we have to analyze this data futher to understand customer behavior, identify successful sales strategies, optimize sales processes, and make informed decisions. So that we can enhance overall sales performance and profitability.
 
 
-### Total sales increase but Total Profit decrease in 2016 ?
+### Diagnostic Analytics
+### 1. Why Total Profit decrease in 2016 ?
 
 
 The situation where sales go up but profits go down happens because even though some products are selling well and making more money, the decrease in profit from other products is more significant. 
@@ -196,13 +197,13 @@ Lets take a look at the two tables below
 Now we can understand clearly about the decrese in profit in 2016. We observe that two products: Dress shirts and Hats, experienced a significant decrease in profit in the year 2016. 
 
 
-**So, what are the factors causing the decline in profit of the two product ?**
+&rarr; **So, why are there a significant decrease in profit Dress Shirt and Hats ?**
 
 
 A decrease in profit can be attributed to either _a decline in sales_ or _an increase in the cost of goods sold (COGS)_. Let take a look closer at these factor in the two product:
 
 
-_1. Decrease in sales_
+_Case 1: Decrease in sales cause the decrease in profit_
 
 
 ![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/0df25a6e-5e82-4829-b684-801213048f64)
@@ -211,30 +212,58 @@ _1. Decrease in sales_
 It is noted that there is a decrease ranging from 50K to 60K USD in the sales of the two items. 
 
 
-**So, is this decrease in sales occurring with specific customers or all customers?**
-
-
-![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/11b78064-1ada-4422-898b-d327124608b1)
-
-
-So, there is a decrease in sales of Dress Shirt and Hats across the majority of customers. We can proceed to examine macroeconomic factors that collectively influence the behavior of the majority of customers and devise appropriate strategies based on the findings. For example, we can consider these factors that may decrease our sales:
-  - The increase in price (The average unit price of these product actually decrease in 2016 so this is not the root cause)
-  - Apperence of new competitors (Don't have the data to analyze)
-  - Shifting consumer preferences (Don't have the data to analyze)
-  - Economic recession (The sales of other products are good so this may not be the answer we're looking for)
-  - etc..
-
-
-_2. Increase in COGS_
+_2. Case 2: Increase in COGS cause the decrease in profit_
 
 
 ![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/937a84bf-6c50-4376-8725-9034ab683456)
 
 
-As you can see there are decrease in COGS. 
+As you can see, in 2016 there are decrease in unit cost of two product. 
 
 
-Therefore in summary, the majority of the profit decrease is caused by the decline in sales of two products: Dress Shirt and Hats.
+Therefore in summary, the majority of the profit decrease is caused by the decline in sales of two products.
+
+
+&rarr; **So, is this decrease in sales occurring with specific customers or all customers?**
+
+
+![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/11b78064-1ada-4422-898b-d327124608b1)
+
+
+There is a decrease in sales of Dress Shirt and Hats across the majority of customers. We can proceed to examine macroeconomic factors that collectively influence the behavior of the majority of customers and devise appropriate strategies based on the findings.
+
+
+&rarr; **What cause the decline in sales: _The decrease in order quantity or the decrease in unit price_?**
+
+
+![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/2944b5c8-469e-4495-8262-d245c449c7aa)
+
+
+_Hats Product:_ 
+- In 2016, the number of products being sold has gone up (order quantity increase by 65 unit), but the price for each product has gone down (the unit price decline by 50 USD). This change has led to a decrease in overall profit.
+- To address this issue, we can consider a few strategies:
+  - Price Adjustment: Reassess pricing for Hats product. A slight increase in price could help maintain or even improve profit margins.
+  - Cost Control: Examine the cost structure for products with reduced profitability. Look for opportunities to reduce production costs without compromising quality.
+  - Upselling and Cross-Selling: Encourage customers to consider complementary or higher-value products (such as any accessories that go with Hats) through upselling and cross-selling techniques, which can help offset the impact of lower unit prices.
+  - Customer Segmentation: Segment customers based on buying behaviors and preferences. This can help tailor marketing strategies and promotions to different customer groups, optimizing sales and profits.
+  - Market Research: Conduct market research to understand why customers are responding to lower unit prices. This can help identify any shifts in customer preferences or market trends that may be influencing their purchasing decisions.
+  - Product Differentiation: Focus on product differentiation and value-added features to justify higher prices for certain products. Highlighting unique selling points can support maintaining higher unit prices.
+  - Promotion and Marketing: Adjust promotional strategies to focus on products with better profit margins. Highlight the value proposition of these products to attract customer attention.
+  - Continuous Monitoring: Regularly monitor sales, pricing, and profit data to identify any changes in trends and take prompt action to address any potential negative impacts.
+
+
+_Dress Shirt Product:_ 
+- In 2016, the unit price decreases (the unit price decline by 28 USD) and the order quantity also declines (order quantity decrease by 129 unit) 
+- Here are a few potential reasons for this phenomenon:
+  - Price-Quality Perception: A significant decrease in unit price might lead customers to question the quality or value of the product. This can result in reduced demand, even though the product is more affordable.
+  - Income Effect: If customers' income levels have decreased or remained stagnant, they might be more cautious about spending, leading to a decline in both quantity and order value.
+  - Substitution Effect: Customers might opt for alternative products or brands that offer a better perceived value, even if the unit price of the original product decreases.
+  - Marketing and Messaging: If the decrease in unit price is not effectively communicated through marketing campaigns or promotions, customers might not be aware of the price reduction and may continue with their usual buying behavior.
+  - Change in Preferences: Shifts in customer preferences, seasonal demand changes, or evolving trends could contribute to reduced demand even with a lower unit price.
+  - Competitor Actions: Competitor pricing strategies and marketing efforts can influence customers' decisions. If competitors offer better value or unique features, customers might still choose their products despite the lower unit price of your products.
+  - Economic Factors: Broader economic conditions, inflation, or uncertainties about the future might influence customers to cut back on spending, resulting in reduced demand.
+  - Lack of Trust: If customers have had negative experiences with the product or brand in the past, they might be hesitant to buy, even if the price has been lowered.
+- To address this situation, it's important to analyze customer feedback, conduct market research, and gather insights on changing consumer preferences. By understanding the underlying reasons, businesses can implement appropriate strategies such as adjusting pricing, improving product communication, enhancing product quality, or addressing any other issues that are contributing to the decline in both unit price and order quantity.
 
 
 

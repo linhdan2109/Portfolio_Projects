@@ -4,9 +4,11 @@ This repository contains my personal portfolio projects to show off skills, who 
 # List of Projects
 
 ## End to End project
-1. [Marketing Analytics](https://github.com/linhdan2109/Portfolio_Projects/tree/main/Google%20Data%20Analytics%20Professional%20Certificate%20Capstone%20Project): This is the project I have done at the end of the Google Data Analytics Professional Course. Following the data analysis process taught in the course, I effectively addressed key business questions. This process involved six essential steps: Ask, Prepare, Process, Analyze, Share, and Act. By applying these steps, I was able to gain valuable insights and provide actionable recommendations to support Bellabeat's marketing strategies and decision-making processes.
+1. [Loan Analytics](https://github.com/linhdan2109/Portfolio_Projects/tree/main/Loan%20Analytics): This project perform initial data analysis to understand the distribution of loan attributes, identify trends, detect outliers, and explore relationships between variables. The purpose of the project is to uncover patterns and insights that can guide further analysis.
+   
+2. [Marketing Analytics](https://github.com/linhdan2109/Portfolio_Projects/tree/main/Google%20Data%20Analytics%20Professional%20Certificate%20Capstone%20Project): This is the project I have done at the end of the Google Data Analytics Professional Course. Following the data analysis process taught in the course, I effectively addressed key business questions. This process involved six essential steps: Ask, Prepare, Process, Analyze, Share, and Act. By applying these steps, I was able to gain valuable insights and provide actionable recommendations to support Bellabeat's marketing strategies and decision-making processes.
 
-2. [Sales Analytics](https://github.com/linhdan2109/Portfolio_Projects/tree/main/Sales%20analysis): This Sales Analysis Project aims to investigate the sales data to extract valuable insights, drive informed decisions, and optimize sales strategies. By examining key performance indicators, market trends, customer behaviors, and product preferences, this project seeks to uncover hidden patterns that can guide us towards maximizing revenue, enhancing customer satisfaction
+3. [Sales Analytics](https://github.com/linhdan2109/Portfolio_Projects/tree/main/Sales%20analysis): This Sales Analysis Project aims to investigate the sales data to extract valuable insights, drive informed decisions, and optimize sales strategies. By examining key performance indicators, market trends, customer behaviors, and product preferences, this project seeks to uncover hidden patterns that can guide us towards maximizing revenue, enhancing customer satisfaction.
 
 ## Machine learning
 

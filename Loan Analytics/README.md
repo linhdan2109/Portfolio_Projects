@@ -22,7 +22,7 @@ The data is not clean, so before doing data analysis tasks we have to clean the 
 You can get the data [here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Loan%20Analytics/loandata.zip)
 
 ## Data Cleaning
-Data cleaning is a crucial step in the data analysis process that involves identifying and rectifying errors, inconsistencies, and inaccuracies present in the raw data. It ensures that the data used for analysis is accurate, reliable, and suitable for making informed decisions. I this project, I use R to clean the data.
+Data cleaning is a crucial step in the data analysis process that involves identifying and rectifying errors, inconsistencies, and inaccuracies present in the raw data. It ensures that the data used for analysis is accurate, reliable, and suitable for making informed decisions. I this process, I used R to clean the data.
 
 You can see my Jupyter Notebook containing cleaning steps [here](https://nbviewer.org/github/linhdan2109/Portfolio_Projects/blob/main/Loan%20Analytics/Data%20Cleaning%20process.ipynb#exportfile)
 

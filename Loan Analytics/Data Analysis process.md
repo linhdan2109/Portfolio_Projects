@@ -103,13 +103,13 @@ Most of the loans' interest rate concentrate in the range of 0.1 to 0.16.
 WITH installment_bins AS (
 	SELECT
 		CASE 
-			WHEN installment <= 200 THEN '0-200'
-			WHEN installment > 200 AND installment <= 400 THEN '200 - 400'
-			WHEN installment > 400 AND installment <= 600 THEN '400 - 600'
-			WHEN installment > 600 AND installment <= 800 THEN '600 - 800'
-			WHEN installment > 800 AND installment <= 1000 THEN '800 - 1000'
-			WHEN installment > 1000 AND installment <= 1200 THEN '1000 - 1200'
-			ELSE '> 1200'
+			WHEN installment <= 100 THEN '0 - 100'
+			WHEN installment > 100 AND installment <= 200 THEN '100 - 200'
+			WHEN installment > 200 AND installment <= 300 THEN '200 - 300'
+			WHEN installment > 300 AND installment <= 400 THEN '300 - 400'
+			WHEN installment > 400 AND installment <= 500 THEN '400 - 500'
+			WHEN installment > 500 AND installment <= 600 THEN '500 - 600'
+			ELSE '600 - 1200'
 		END AS installment_range
 	FROM LoanData
 )
@@ -121,28 +121,29 @@ SELECT
 FROM installment_bins
 GROUP BY installment_range
 ORDER BY CASE 
-			WHEN installment_range = '0-200' THEN 1
-			WHEN installment_range = '200 - 400' THEN 2
-			WHEN installment_range = '400 - 600' THEN 3
-			WHEN installment_range = '600 - 800' THEN 4
-			WHEN installment_range = '800 - 1000' THEN 5
-			WHEN installment_range = '1000 - 1200' THEN 6
+			WHEN installment_range = '0 - 100' THEN 1
+			WHEN installment_range = '100 - 200' THEN 2
+			WHEN installment_range = '200 - 300' THEN 3
+			WHEN installment_range = '300 - 400' THEN 4
+			WHEN installment_range = '400 - 500' THEN 5
+			WHEN installment_range = '500 - 600' THEN 6
 			ELSE 7
 		END;
 ```
 | installment_range | num_loan_applications | percent_loan_applications  |
 |-------------------|-----------------------|----------------------------|
-| 0-200             | 13244                 | 33.39                      |
-| 200 - 400         | 15161                 | 38.22                      |
-| 400 - 600         | 6872                  | 17.32                      |
-| 600 - 800         | 2772                  | 6.99                       |
-| 800 - 1000        | 1383                  | 3.49                       |
-| 1000 - 1200       | 176                   | 0.44                       |
-| > 1200            | 59                    | 0.15                       |
+| 0 - 100           | 4013                  | 10.12                      |
+| 100 - 200         | 9231                  | 23.27                      |
+| 200 - 300         | 7806                  | 19.68                      |
+| 300 - 400         | 7355                  | 18.54                      |
+| 400 - 500         | 4124                  | 10.4                       |
+| 500 - 600         | 2748                  | 6.93                       |
+| 600 - 1200        | 4390                  | 11.07                      |
 
-The data suggests that the majority of borrowers are paying relatively lower monthly installments. We can see that about 88.93% of loans have installment amounts that are under 600. 
 
-There are a few loans with significantly higher installment amounts of others.
+The data suggests that the majority of borrowers are paying between 100 USD - 300 USD monthly installments. We can see that about 62% of loans have installment amounts that are in the range 100 USD - 300 USD. 
+
+There are about 11% of loans with significantly higher installment amounts of others (600 - 1200).
 
 This information is crucial for understanding the affordability of loans for borrowers and for making informed decisions about lending terms and conditions.
 

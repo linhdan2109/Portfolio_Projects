@@ -325,20 +325,250 @@ ORDER BY issue_year;
 
 Over the course of the years from 2007 to 2011, there was a pronounced and noteworthy upsurge in the quantity of loans being issued. This growth, however, exhibited a trend of diminishing percentage increases as the years progressed. While the total count of loans exhibited a substantial rise during this period, the rate of increase progressively declined over the years.
 
-**11. Loan status**
+**11. Number of loan applications by Loan status**
 
-12. Purposes
+_11a. Loan status (with current applications)_
 
-13. Borrowers Address state
+```sql
+SELECT
+	loan_status,
+	COUNT(*) AS num_loan_applications,
+	ROUND(CAST(COUNT(*) AS FLOAT) * 100 / (SELECT COUNT(*) FROM LoanData)
+		, 2) AS percent_loan_applications
+FROM LoanData
+GROUP BY loan_status
+ORDER BY loan_status;
+```
 
-14. Debt-to-income ratio (dti ratio)
+| loan_status | num_loan_applications | percent_loan_applications  |
+|-------------|-----------------------|----------------------------|
+| Charged Off | 5611                  | 14.15                      |
+| Current     | 1140                  | 2.87                       |
+| Fully Paid  | 32916                 | 82.98                      |
+
+
+_11b. Loan status (without current applications)_
+
+```sql
+SELECT
+	loan_status,
+	COUNT(*) AS num_loan_applications,
+	ROUND(CAST(COUNT(*) AS FLOAT) * 100 / (SELECT COUNT(*) FROM LoanData WHERE loan_status != 'Current')
+		, 2) AS percent_loan_applications
+```
+
+| loan_status | num_loan_applications | percent_loan_applications  |
+|-------------|-----------------------|----------------------------|
+| Charged Off | 5611                  | 14.56                      |
+| Fully Paid  | 32916                 | 85.44                      |
+
+The rate of fully repaid loans stands at 85%. Certainly, it's important to keep in mind the high rate of fully repaid loans as we move forward with building a predictive model for loan status. This information serves as a valuable benchmark and reference point
+
+**12. Number of loan applications by Purposes**
+
+```sql
+SELECT
+	purpose,
+	COUNT(*) AS num_loan_applications,
+	ROUND(CAST(COUNT(*) AS FLOAT) * 100 / (SELECT COUNT(*) FROM LoanData)
+		, 2) AS percent_loan_applications
+FROM LoanData
+GROUP BY purpose
+ORDER BY num_loan_applications DESC;
+```
+
+| purpose            | num_loan_applications | percent_loan_applications  |
+|--------------------|-----------------------|----------------------------|
+| Debt Consolidation | 18629                 | 46.96                      |
+| Credit Card        | 5128                  | 12.93                      |
+| Other              | 3980                  | 10.03                      |
+| Home Improvement   | 2971                  | 7.49                       |
+| Major Purchase     | 2181                  | 5.5                        |
+| Small Business     | 1827                  | 4.61                       |
+| Car                | 1547                  | 3.9                        |
+| Wedding            | 946                   | 2.38                       |
+| Medical            | 691                   | 1.74                       |
+| Moving             | 581                   | 1.46                       |
+| House              | 381                   | 0.96                       |
+| Vacation           | 380                   | 0.96                       |
+| Educational        | 322                   | 0.81                       |
+| Renewable Energy   | 103                   | 0.26                       |
+
+This purpose has the highest number of loan applications, accounting for approximately 46.96% of the total. Debt consolidation loans are typically sought to merge multiple debts into a single loan for easier management. The credit card purpose category has the second-highest number of loan applications, making up around 12.93% of the total.
+
+**13. Top 10 states have the most loan applications**
+
+```sql
+WITH top10_addr_state AS (
+	SELECT TOP 10
+		addr_state,
+		COUNT(*) AS num_loan_applications,
+		ROUND(CAST(COUNT(*) AS FLOAT) * 100 / (SELECT COUNT(*) FROM LoanData)
+			, 2) AS percent_loan_applications
+	FROM LoanData
+	GROUP BY addr_state
+),
+top10_and_other_addr_state AS (
+	SELECT 
+		*,
+		CASE 
+			WHEN addr_state IN (SELECT addr_state FROM top10_addr_state) THEN addr_state
+			ELSE 'Other'
+		END AS addr_state_temp
+	FROM LoanData
+)
+SELECT 
+	addr_state_temp,
+	COUNT(*) AS num_loan_applications,
+	ROUND(CAST(COUNT(*) AS FLOAT) * 100 / (SELECT COUNT(*) FROM LoanData)
+		, 2) AS percent_loan_applications
+FROM top10_and_other_addr_state
+GROUP BY addr_state_temp
+ORDER BY num_loan_applications DESC;
+```
+
+| addr_state_temp | num_loan_applications | percent_loan_applications  |
+|-----------------|-----------------------|----------------------------|
+| Other           | 21975                 | 55.4                       |
+| CA              | 7092                  | 17.88                      |
+| TX              | 2723                  | 6.86                       |
+| IL              | 1524                  | 3.84                       |
+| VA              | 1406                  | 3.54                       |
+| GA              | 1398                  | 3.52                       |
+| AZ              | 876                   | 2.21                       |
+| NC              | 787                   | 1.98                       |
+| CT              | 751                   | 1.89                       |
+| MO              | 685                   | 1.73                       |
+| OR              | 450                   | 1.13                       |
+
+California has the highest number of loan applications, comprising about 17.88% of the total. The significant percentage suggests that a substantial number of loan applicants have temporary addresses in California. Texas follows with around 6.86% of the total loan applications.
+
+**14. Debt-to-income ratio (dti ratio)**
+
+```sql
+
+```
 
 15. Total credit revolving balance
 
+```sql
+
+```
+
 16. Revolving line utilization rate (the amount of credit the borrower is using relative to all available revolving credit)
+
+```sql
+
+```
 
 17. The total number of credit lines currently in the borrower's credit file
 
+```sql
+
+```
+
 18, 19 and 20. Total payments, principal and interest received to date for total amount funded
+
+_Sum of payments, interest and principal in the period 2007 - 2011_ 
+
+```sql
+SELECT 
+	SUM(total_pymnt) AS sum_payment,
+	SUM(total_rec_prncp) AS sum_principle,
+	SUM(total_rec_int) AS sum_interest
+FROM LoanData
+```
+
+| sum_payment      | sum_principle    | sum_interest     |
+|------------------|------------------|------------------|
+| 482482303.019469 | 388791568.000008 | 89860770.7000007 |
+
+_b. Tracking total payments, interest and principal for loan applications' status is 'Charged Off'_
+
+```sql
+SELECT 
+	id, 
+	loan_amnt,
+	total_pymnt,
+	total_rec_prncp,
+	total_rec_int,
+	total_rec_prncp/loan_amnt AS debt_payoff_rate
+FROM LoanData
+WHERE loan_status = 'Charged Off'
+```
+
+| id      | loan_amnt | total_pymnt | total_rec_prncp | total_rec_int | debt_payoff_rate    |
+|---------|-----------|-------------|-----------------|---------------|---------------------|
+| 1077430 | 2500      | 1008.71     | 456.46          | 435.17        | 0.182584            |
+| 1071795 | 5600      | 646.02      | 162.02          | 294.94        | 0.0289321428571429  |
+| 1071570 | 5375      | 1476.19     | 673.48          | 533.42        | 0.125298604651163   |
+| 1064687 | 9000      | 2270.7      | 1256.14         | 570.26        | 0.139571111111111   |
+| 1069057 | 10000     | 7471.99     | 5433.47         | 1393.42       | 0.543347            |
+| 1039153 | 21000     | 14025.4     | 10694.96        | 3330.44       | 0.509283809523809   |
+| 1069559 | 6000      | 2050.14     | 1305.58         | 475.25        | 0.217596666666667   |
+| 1069800 | 15000     | 0           | 0               | 0             | 0                   |
+| 1069657 | 5000      | 1609.12     | 629.05          | 719.11        | 0.12581             |
+| 1069465 | 5000      | 5021.37     | 4217.38         | 696.99        | 0.843476            |
+| 1069248 | 15000     | 16177.77    | 13556.45        | 2374.34       | 0.903763333333333   |
+| 1069243 | 12000     | 3521.95     | 1903.66         | 1039.35       | 0.158638333333333   |
+| 1069410 | 21000     | 18319.14    | 8990.81         | 9328.33       | 0.428133809523809   |
+| 1069126 | 10000     | 8772.91     | 5495.38         | 2429.23       | 0.549538            |
+| ...     | ...       | ...         | ...             | ...           | ...                 |
+
+_c. Tracking total payments, interest and principal for loan applications' status is 'Current'_
+```sql
+SELECT 
+	id, 
+	loan_amnt,
+	total_pymnt,
+	total_rec_prncp,
+	total_rec_int,
+	total_rec_prncp/loan_amnt AS debt_payoff_rate
+FROM LoanData
+WHERE loan_status = 'Current'
+```
+
+| id      | id      | loan_amnt | total_pymnt | total_rec_prncp | total_rec_int |
+|---------|---------|-----------|-------------|-----------------|---------------|
+| 1077430 | 1075358 | 3000      | 3513.33     | 2475.94         | 1037.39       |
+| 1071795 | 1065420 | 10000     | 12594.24    | 8150.89         | 4443.35       |
+| 1071570 | 1069346 | 12500     | 14636.3     | 10318.58        | 4317.72       |
+| 1064687 | 1063958 | 14000     | 18176.96    | 11362.67        | 6814.29       |
+| 1069057 | 1068575 | 15300     | 21988.2     | 12174.21        | 9813.99       |
+| 1039153 | 1067874 | 6000      | 7037.39     | 4958.01         | 2079.38       |
+| 1069559 | 1034693 | 16000     | 20908.55    | 12966.72        | 7941.83       |
+| 1069800 | 1046969 | 11000     | 13131.62    | 9058.73         | 4072.89       |
+| 1069657 | 1066664 | 21000     | 15297.1     | 9564.9          | 5732.2        |
+| 1069465 | 1066659 | 16000     | 20783.1     | 12990.27        | 7792.83       |
+| 1069248 | 1064063 | 18825     | 24593.14    | 15252.82        | 9340.32       |
+| 1069243 | 1066173 | 12300     | 14688.44    | 10131.81        | 4556.63       |
+| 1069410 | 1065145 | 18000     | 22354.28    | 14718           | 7636.28       |
+| 1069126 | 1065342 | 20000     | 24548.68    | 16421.38        | 8127.3        |
+| ...     | ...     | ...       | ...         | ...             | ...           |
+
+_d. Total payments by loan status and year_
+```sql
+SELECT
+	YEAR(issue_d) AS issue_year,
+	ROUND(SUM(CASE WHEN loan_status = 'Fully Paid' THEN total_pymnt ELSE 0 END), 2) AS fully_paid,
+	ROUND(SUM(CASE WHEN loan_status = 'Charged Off' THEN total_pymnt ELSE 0 END), 2) AS charged_off,
+	ROUND(SUM(CASE WHEN loan_status = 'Current' THEN total_pymnt ELSE 0 END), 2) AS current_loan,
+	ROUND(SUM(CASE WHEN loan_status = 'Fully Paid' THEN total_pymnt ELSE 0 END)/ SUM(total_pymnt), 2) AS fully_paid_rate
+FROM LoanData
+GROUP BY YEAR(issue_d)
+ORDER BY YEAR(issue_d);
+```
+
+| issue_year | fully_paid   | charged_off | current_loan |
+|------------|--------------|-------------|--------------|
+| 2007       | 1931151.63   | 281540.03   | 0            |
+| 2008       | 12698676.53  | 1335765.68  | 0            |
+| 2009       | 46928428.71  | 3339311.94  | 0            |
+| 2010       | 121337767.31 | 9085461.1   | 0            |
+| 2011       | 236235319.39 | 24396602.55 | 24912278.14  |
+
+
+The table showcases the trends of fully paid and charged off amounts, indicating how these figures have changed and evolved over the specified period. Additionally, the introduction of the "current_loan" category in 2011 reflects loans that are currently active. 
+
 
 ## PART B: BIVARIATE ANALYSIS

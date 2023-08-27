@@ -121,14 +121,14 @@ SELECT
 FROM installment_bins
 GROUP BY installment_range
 ORDER BY CASE 
-			WHEN installment_range = '0 - 100' THEN 1
-			WHEN installment_range = '100 - 200' THEN 2
-			WHEN installment_range = '200 - 300' THEN 3
-			WHEN installment_range = '300 - 400' THEN 4
-			WHEN installment_range = '400 - 500' THEN 5
-			WHEN installment_range = '500 - 600' THEN 6
-			ELSE 7
-		END;
+		WHEN installment_range = '0 - 100' THEN 1
+		WHEN installment_range = '100 - 200' THEN 2
+		WHEN installment_range = '200 - 300' THEN 3
+		WHEN installment_range = '300 - 400' THEN 4
+		WHEN installment_range = '400 - 500' THEN 5
+		WHEN installment_range = '500 - 600' THEN 6
+		ELSE 7
+	END;
 ```
 | installment_range | num_loan_applications | percent_loan_applications  |
 |-------------------|-----------------------|----------------------------|
@@ -147,17 +147,185 @@ There are about 11% of loans with significantly higher installment amounts of ot
 
 This information is crucial for understanding the affordability of loans for borrowers and for making informed decisions about lending terms and conditions.
 
-**6. Grade**
+**6. Number of loans in each Grade**
 
-7. Home Ownership
+```sql
+SELECT
+	grade,
+	COUNT(*) AS num_loan_applications,
+	ROUND(CAST(COUNT(*) AS FLOAT) * 100 / (SELECT COUNT(*) FROM LoanData)
+		, 2) AS percent_loan_applications
+FROM LoanData
+GROUP BY grade
+ORDER BY grade;
+```
+| grade | num_loan_applications | percent_loan_applications  |
+|-------|-----------------------|----------------------------|
+| A     | 10085                 | 25.42                      |
+| B     | 12019                 | 30.3                       |
+| C     | 8084                  | 20.38                      |
+| D     | 5291                  | 13.34                      |
+| E     | 2831                  | 7.14                       |
+| F     | 1043                  | 2.63                       |
+| G     | 314                   | 0.79                       |
 
-8. Annual income
+Most loan applications is in Grade A, B and C.
 
-9. Verification status
+**7. Home Ownership**
 
-10. Issue Year
+```sql
+SELECT
+	home_ownership,
+	COUNT(*) AS num_loan_applications,
+	ROUND(CAST(COUNT(*) AS FLOAT) * 100 / (SELECT COUNT(*) FROM LoanData)
+		, 2) AS percent_loan_applications
+FROM LoanData
+GROUP BY home_ownership
+ORDER BY num_loan_applications DESC;
+```
 
-11. Loan status
+| home_ownership | num_loan_applications | percent_loan_applications  |
+|----------------|-----------------------|----------------------------|
+| Rent           | 18867                 | 47.56                      |
+| Mortgage       | 17648                 | 44.49                      |
+| Own            | 3053                  | 7.7                        |
+| Other          | 96                    | 0.24                       |
+| None           | 3                     | 0.01                       |
+
+In the dataset, a significant portion (92%) of the borrowers' housing situations can be classified into two main categories: renting and mortgage. 
+
+This observation sheds light on the prevailing trend among borrowers in terms of their residential arrangements.
+
+**8. Annual income**
+
+_8a. Find min, max, average and standard deviation of annual income_
+
+```sql
+SELECT
+	MIN(annual_inc) AS min_inc,
+	AVG(annual_inc) AS avg_inc,
+	MAX(annual_inc) AS max_inc,
+	STDEV(annual_inc) AS sd_inc
+FROM LoanData;
+```
+
+| min_inc | avg_inc          | max_inc | sd_inc           |
+|---------|------------------|---------|------------------|
+| 4000    | 68999.5237582878 | 6000000 | 63789.4654493437 |
+
+There is a significant disparity between the lowest income ($4,000 USD) and the highest income ($6,000,000 USD) in the Lending Club dataset, and the standard deviation of income is also quite high. This indicates (1) a wide range of income levels among borrowers, from those with low income to those with very high income or (2) There are outliners in annual income, These outliers can introduce noise to the analysis and lead to incorrect conclusions or (3) both.
+
+To understand more about the distribution of annual income, we can look at the percentiles of it.
+
+_8b. Find percentiles of annual income_
+
+```sql
+SELECT
+	DISTINCT PERCENTILE_CONT(0.05) WITHIN GROUP (ORDER BY annual_inc) OVER() AS percentile_5th_inc,
+	PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY annual_inc) OVER() AS Q1_inc,
+	PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY annual_inc) OVER () AS Q2_inc,
+	PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY annual_inc) OVER () AS Q3_inc,
+	PERCENTILE_CONT(0.95) WITHIN GROUP (ORDER BY annual_inc) OVER() AS percentile_95th_inc
+FROM LoanData;
+```
+
+| percentile_5th_inc | Q1_inc   | Q2_inc | Q3_inc | percentile_95th_inc  |
+|--------------------|----------|--------|--------|----------------------|
+| 24000              | 40516.32 | 59000  | 82400  | 142000               |
+
+There is a big difference between the lowest value and the 5th percentile, as well as between the highest value and the 95th percentile in the dataset.
+
+These differences could suggest the presence of unusual values that might affect the analysis. It's important to address these outliers to ensure reliable results from the data analysis. Let's considere the values that smaller than 5th percentile and greater than 95th percentile are outliners and remove it. Once we remove them, we can then analyze the statistics of the annual income to gain a better understanding of the income distribution without the influence of extreme values.
+
+_8c. Find min, max and average of annual income after remove outliner_
+
+```sql
+WITH percentile_inc AS (
+	SELECT
+		*,
+		PERCENTILE_CONT(0.05) WITHIN GROUP (ORDER BY annual_inc) OVER() AS percentile_5th_inc,
+		PERCENTILE_CONT(0.95) WITHIN GROUP (ORDER BY annual_inc) OVER() AS percentile_95th_inc
+	FROM LoanData
+),
+remove_inc_outliner AS (
+	SELECT
+		*
+	FROM percentile_inc
+	WHERE annual_inc >= percentile_5th_inc AND annual_inc <= percentile_95th_inc
+)
+SELECT
+	MIN(annual_inc) AS new_min_inc,
+	AVG(annual_inc) AS new_avg_inc,
+	MAX(annual_inc) AS new_max_inc,
+	STDEV(annual_inc) AS new_sd_inc
+FROM remove_inc_outliner;
+```
+
+| new_min_inc | new_avg_inc      | new_max_inc | new_sd_inc       |
+|-------------|------------------|-------------|------------------|
+| 24000       | 63257.7057925811 | 142000      | 26722.7854207024 |
+
+ As you can see, after remove outliners, both the mean and standard deviation decrease.
+ - The mean decrease from 68K to 63K.
+ - The standard deviation decrease from 63K to 26K.
+ - The lowest income move from 4K to 24K.
+ - The highest income move from 6M to 140K.
+
+**9. Number of loans by verification status**
+
+```sql
+SELECT
+	verification_status,
+	COUNT(*) AS num_loan_applications,
+	ROUND(CAST(COUNT(*) AS FLOAT) * 100 / (SELECT COUNT(*) FROM LoanData)
+		, 2) AS percent_loan_applications
+FROM LoanData
+GROUP BY verification_status
+ORDER BY num_loan_applications DESC;
+```
+
+| verification_status | num_loan_applications | percent_loan_applications  |
+|---------------------|-----------------------|----------------------------|
+| Not Verified        | 16892                 | 42.58                      |
+| Verified            | 12799                 | 32.27                      |
+| Source Verified     | 9976                  | 25.15                      |
+
+There are lots of borrowers in the data have unverified income.
+
+**10. Issue Year**
+
+```sql
+WITH loan_year AS(
+	SELECT
+		YEAR(issue_d) AS issue_year,
+		COUNT(*) AS num_loan_applications,
+		ROUND(CAST(COUNT(*) AS FLOAT) * 100 / (SELECT COUNT(*) FROM LoanData)
+			, 2) AS percent_loan_applications
+	FROM LoanData
+	GROUP BY YEAR(issue_d)
+)
+SELECT 
+	issue_year,
+	num_loan_applications,
+	percent_loan_applications,
+	CAST (num_loan_applications - LAG(num_loan_applications) OVER (ORDER BY issue_year) AS FLOAT)
+		/LAG(num_loan_applications) OVER (ORDER BY issue_year) 
+		* 100 AS percent_increase
+FROM loan_year
+ORDER BY issue_year;
+```
+
+| issue_year | num_loan_applications | percent_loan_applications | percent_increase  |
+|------------|-----------------------|---------------------------|-------------------|
+| 2007       | 251                   | 0.63                      | NULL              |
+| 2008       | 1554                  | 3.92                      | 519.123505976096  |
+| 2009       | 4702                  | 11.85                     | 202.574002574003  |
+| 2010       | 11513                 | 29.02                     | 144.853253934496  |
+| 2011       | 21647                 | 54.57                     | 88.0222357335186  |
+
+Over the course of the years from 2007 to 2011, there was a pronounced and noteworthy upsurge in the quantity of loans being issued. This growth, however, exhibited a trend of diminishing percentage increases as the years progressed. While the total count of loans exhibited a substantial rise during this period, the rate of increase progressively declined over the years.
+
+**11. Loan status**
 
 12. Purposes
 

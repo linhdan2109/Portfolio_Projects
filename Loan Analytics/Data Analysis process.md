@@ -445,29 +445,167 @@ California has the highest number of loan applications, comprising about 17.88% 
 
 **14. Debt-to-income ratio (dti ratio)**
 
-```sql
-
-```
-
-15. Total credit revolving balance
+_14a. View number of borrower by dti ratio (whether it's smaller than 1 or not)_
 
 ```sql
-
+SELECT
+	CASE 
+		WHEN dti < 1 THEN 'dti < 1'
+		ELSE 'dti > 1'
+	END AS dti,
+	COUNT(*) AS num_borrower
+FROM LoanData
+GROUP BY CASE WHEN dti < 1 THEN 'dti < 1' ELSE 'dti > 1' END;
 ```
 
-16. Revolving line utilization rate (the amount of credit the borrower is using relative to all available revolving credit)
+| dti            | num_borrower  |
+|----------------|---------------|
+| dti > 1        | 38703         |
+| dti < 1        | 964           |
+
+A significant number of loan borrowers have a DTI ratio greater than 1. This observation is quite unusual and raises concerns about the accuracy of the data itself.
+
+The debt-to-income ratio (DTI ratio) is a financial metric that reflects the proportion of a borrower's debt to their income. A DTI ratio exceeding 1 implies that the borrower's debt obligations surpass their monthly income. From a logical standpoint, this scenario is highly improbable and defies financial prudence. Borrowers would typically struggle to meet their obligations if their debt surpasses their income.
+
+In conclusion, the presence of a substantial number of borrowers with a debt-to-income ratio greater than 1 is a clear red flag. Let's check the min, average and max of DTI ratio.
+
+_14b. Find min, max and average of dti ratio_
 
 ```sql
-
+SELECT
+	MIN(dti) AS min_dti,
+	AVG(dti) AS avg_dti,
+	MAX(dti) AS max_dti
+FROM LoanData;
 ```
 
-17. The total number of credit lines currently in the borrower's credit file
+| min_dti | avg_dti          | max_dti  |
+|---------|------------------|----------|
+| 0       | 13.3187044646684 | 29.99    |
+
+The average DTI ratio is 13.3 and the max DTI ratio is 30. That means on average, a borrower at Lending Club has debt exceeds their reported income by a factor of 13. This signals potential data quality issues or anomalies. The anomaly could be attributed to the fact that the debt-to-income ratio (DTI) values are presented as percentages, rather than decimal values. If the data is indeed represented as percentages, it implies that the values need to be normalized by dividing them by 100 to obtain the correct decimal form of the debt-to-income ratio.
+
+_14c. Divide dti by 100_
 
 ```sql
+SELECT
+	MIN(dti/100) AS min_dti,
+	AVG(dti/100) AS avg_dti,
+	MAX(dti/100) AS max_dti
+FROM LoanData;
+```
+| min_dti | avg_dti           | max_dti  |
+|---------|-------------------|----------|
+| 0       | 0.133187044646683 | 0.2999   |
 
+Now the average DTI is 0.13 and the max dti is 0.3, this makes more sense. 
+
+Generally, it's a good idea to keep your DTI ratio below 43%, though 35% or less is considered “good.”
+
+![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/30ef64aa-cbc6-4929-8c4c-7d48df36e113)
+
+The highest DTI ratio in this dataset is 0.3 so all loans have good dti ratios
+
+**15-16. Credit revolving balance and Revolving line utilization rate**
+
+_15. Revolving balance statistic_
+
+Revolving balance is the outstanding amount of credit that a borrower owes on a revolving credit account
+
+```sql
+SELECT
+	MIN(revol_bal) AS min_bal,
+	AVG(revol_bal) AS avg_val,
+	MAX(revol_bal) AS max_bal,
+	STDEV(revol_bal) AS sd_bal
+FROM LoanData;
 ```
 
-18, 19 and 20. Total payments, principal and interest received to date for total amount funded
+| min_bal | avg_val          | max_bal | sd_bal          |
+|---------|------------------|---------|-----------------|
+| 0       | 13398.1553936522 | 149588  | 15887.036743361 |
+
+These statistics give us an overview of the distribution and variability of revolving balances within the dataset. But examining the revolving balance alone is not sufficient to gain a comprehensive understanding of the financial health and behavior of borrowers. It's important to also consider the revolving utilization rate, which provides a more holistic view of how borrowers are utilizing their available credit.
+
+_16. Revolving line utilization rate_
+
+The revolving line utilization rate, also known as the credit utilization rate, is a measure of how much of a borrower's available credit they are currently using. It is calculated by dividing the total amount of revolving credit currently in use by the total available revolving credit limit.
+
+A lower revolving line utilization rate is generally considered favorable, as it indicates that the borrower is not using a large portion of their available credit. Lenders often use this rate to assess a borrower's creditworthiness, with lower utilization rates being associated with lower risk.
+
+```sql
+SELECT 
+	ROUND(revol_util, 1) AS revol_util,
+	COUNT(*) AS num_loan_applications
+FROM LoanData
+GROUP BY ROUND(revol_util, 1)
+ORDER BY ROUND(revol_util, 1);
+```
+
+| revol_util | num_loan_applications  |
+|------------|------------------------|
+| 0          | 2695                   |
+| 0.1        | 3469                   |
+| 0.2        | 3583                   |
+| 0.3        | 4034                   |
+| 0.4        | 4140                   |
+| 0.5        | 4354                   |
+| 0.6        | 4334                   |
+| 0.7        | 4174                   |
+| 0.8        | 3955                   |
+| 0.9        | 3472                   |
+| 1          | 1457                   |
+
+The data indicates that there isn't a substantial variation in the distribution of loan applications across different levels of revolving utilization rates. The number of loan applications remains relatively consistent across the various utilization rate categories, with only slight fluctuations.
+
+
+**17. Total number of credit lines currently in the borrower's credit file**
+
+```sql
+WITH total_acc_count AS (
+	SELECT
+		*,
+		CASE 
+			WHEN total_acc <= 10 THEN '0-10'
+			WHEN total_acc > 10 AND total_acc <= 20 THEN '10 - 20'
+			WHEN total_acc > 20 AND total_acc <= 30 THEN '20 - 30'
+			WHEN total_acc > 30 AND total_acc <= 40 THEN '30 - 40'
+			WHEN total_acc > 40 AND total_acc <= 50 THEN '40 - 50'
+			WHEN total_acc > 50 AND total_acc <= 60 THEN '50 - 60'
+			ELSE '> 50'
+		END AS total_acc_range,
+		CASE 
+			WHEN total_acc <= 10 THEN 1
+			WHEN total_acc > 10 AND total_acc <= 20 THEN 2
+			WHEN total_acc > 20 AND total_acc <= 30 THEN 3
+			WHEN total_acc > 30 AND total_acc <= 40 THEN 4
+			WHEN total_acc > 40 AND total_acc <= 50 THEN 5
+			WHEN total_acc > 50 AND total_acc <= 60 THEN 6
+			ELSE 7
+		END AS total_acc_range_order
+FROM LoanData
+)
+SELECT 
+	total_acc_range,
+	COUNT(*) AS num_loan_applications
+FROM total_acc_count
+GROUP BY total_acc_range, total_acc_range_order
+ORDER BY total_acc_range_order;
+```
+
+| total_acc_range | num_loan_applications  |
+|-----------------|------------------------|
+| 0-10            | 5917                   |
+| 10 - 20         | 14001                  |
+| 20 - 30         | 11299                  |
+| 30 - 40         | 5663                   |
+| 40 - 50         | 1993                   |
+| 50 - 60         | 584                    |
+| > 50            | 210                    |
+
+The majority of loan applications (around 23.42%) fall within the range of 10 to 20 total accounts, indicating that a significant number of borrowers have a moderate number of accounts. The next most common range is 20 to 30 total accounts, accounting for approximately 18.85% of the loan applications.
+
+**18-19-20. Total payments, principal and interest received to date for total amount funded**
 
 _Sum of payments, interest and principal in the period 2007 - 2011_ 
 

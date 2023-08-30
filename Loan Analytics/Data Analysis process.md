@@ -3,7 +3,7 @@
 ## INTRODUCTION
 This loan analysis project analyze various aspects related to loan data. This includes assessing borrower profiles, credit scores, financial histories, and repayment patterns. Through the application of data analysis techniques, the project aims to identify trends, risks, and opportunities for the company. The ultimate goal is to enhance decision-making processes, optimize lending strategies, and ensure the overall health of the lending business.
 
-Download the SQL code file [here]()
+Download the SQL code file [here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Loan%20Analytics/DA_SQLcode.sql)
 
 ## PART A: UNIVARIATE ANALYSIS
 
@@ -708,7 +708,6 @@ ORDER BY YEAR(issue_d);
 | 2011       | 236235319.39 | 24396602.55 | 24912278.14  | 0.83             |
 
 
-
 The table showcases the trends of fully paid and charged off amounts, indicating how these figures have changed and evolved over the specified period. Additionally, the introduction of the "current_loan" category in 2011 reflects loans that are currently active. 
 
 
@@ -901,44 +900,334 @@ The categorical variables we need to analyze is:
 (2) Grade
 (3) Home ownership
 (4) Verification status
-(5) issue year
+(5) Issue year
 (6) Purpose
 (7) State
 
 When it comes to categorical variables, my approach involves comparing the distribution of different categories within each variable. The goal is to identify significant differences in distribution patterns between loans that are 'fully paid' and those that are 'charged off'. This analysis will provide valuable insights into how specific categories within these variables could be influential factors in determining loan status.
 
+**The base rate of loan status**
+
+In statistics, the term "base rate" refers to the natural frequency of an event occurring within a population. It represents the proportion an event occurs without any additional factors or interventions. The base rate is often used as a benchmark for comparison when evaluating the effectiveness of a model, test, or intervention.
+
+The table below shows the base rate of loan status:
+
+| loan_status | percent_loan_applications (base rate)  |
+|-------------|----------------------------------------|
+| Charged Off | 14.56                                  |
+| Fully Paid  | 85.44                                  |
+
+
 **(1) Term vs Loan status**
 ```sql
+WITH term_status AS (
+	SELECT 
+		CASE
+			WHEN term = 36 THEN '36 months' 
+			WHEN term = 60 THEN '60 months'
+		END AS term,
+		CAST(COUNT(CASE WHEN loan_status = 'Fully Paid' THEN 1 ELSE NULL END) AS FLOAT) AS fully_paid,
+		CAST(COUNT(CASE WHEN loan_status = 'Charged Off' THEN 1 ELSE NULL END) AS FLOAT) AS charged_off
+	FROM LoanData
+	GROUP BY term
+)
 SELECT 
-	loan_status,
-	COUNT(CASE WHEN term = 36 THEN 1 ELSE NULL END) AS count_loans_36_month,
-	COUNT(CASE WHEN term = 60 THEN 1 ELSE NULL END) AS count_loans_60_month
-FROM LoanData
-WHERE loan_status != 'Current'
-GROUP BY loan_status;
+	term,
+	SUM(fully_paid)/SUM(fully_paid + charged_off) * 100 AS percent_fully_paid,
+	SUM(charged_off)/SUM(fully_paid + charged_off) * 100 AS percent_charged_off
+FROM term_status
+GROUP BY term
+ORDER BY term;
 ```
 
-| loan_status | count_loans_36_month | count_loans_60_month  |
-|-------------|----------------------|-----------------------|
-| Fully Paid  | 25835                | 7081                  |
-| Charged Off | 3214                 | 2397                  |
+| term      | percent_fully_paid | percent_charged_off  |
+|-----------|--------------------|----------------------|
+| 36 months | 88.9359358325588   | 11.0640641674412     |
+| 60 months | 74.7098543996624   | 25.2901456003376     |
 
+The loan term duration appears to have a significant impact on the likelihood of a loan being fully paid or charged off.
 
+Loans with a term duration of 36 months have a higher likelihood of being fully paid, with nearly 88.94% falling into this category. This suggests that loans with a shorter term are more likely to be successfully repaid. On the other hand, loans with a term duration of 60 months have a higher likelihood of being charged off, with approximately 25.29% falling into this category. This indicates that loans with a longer term might carry a somewhat higher risk of default.
 
 
 **(2) Grade vs Loan status**
+```sql
+WITH grade_status AS (
+	SELECT 
+		grade,
+		CAST(COUNT(CASE WHEN loan_status = 'Fully Paid' THEN 1 ELSE NULL END) AS FLOAT) AS fully_paid,
+		CAST(COUNT(CASE WHEN loan_status = 'Charged Off' THEN 1 ELSE NULL END) AS FLOAT) AS charged_off
+	FROM LoanData
+	GROUP BY grade
+)
+SELECT 
+	grade,
+	SUM(fully_paid)/SUM(fully_paid + charged_off) * 100 AS percent_fully_paid,
+	SUM(charged_off)/SUM(fully_paid + charged_off) * 100 AS percent_charged_off
+FROM grade_status
+GROUP BY grade
+ORDER BY grade;
+```
+
+| grade | percent_fully_paid | percent_charged_off  |
+|-------|--------------------|----------------------|
+| A     | 94.006968641115    | 5.99303135888502     |
+| B     | 87.793387013877    | 12.206612986123      |
+| C     | 82.8260869565217   | 17.1739130434783     |
+| D     | 78.0035509962517   | 21.9964490037483     |
+| E     | 73.1900452488688   | 26.8099547511312     |
+| F     | 67.4226804123711   | 32.5773195876289     |
+| G     | 66.6666666666667   | 33.3333333333333     |
+
+We see the grade of the loan clearly have a significant correlation with the loan status.
+
+Higher-grade loans (A and B) have a higher likelihood of being fully paid and a lower likelihood of being charged off. These grades represent lower risk profiles. As loan grades descend (C, D, E, F, G), the percentage of fully paid loans decreases, and the percentage of charged-off loans increases. This suggests higher risk associated with lower-grade loans.
+
+The data shows a clear gradation in default risk from higher to lower grades. Lenders assign grades based on risk assessment, and this data supports that grading system's accuracy in predicting loan outcomes.
 
 
 **(3) Home ownership vs Loan status**
+```sql
+WITH home_status AS (
+	SELECT 
+		home_ownership,
+		CAST(COUNT(CASE WHEN loan_status = 'Fully Paid' THEN 1 ELSE NULL END) AS FLOAT) AS fully_paid,
+		CAST(COUNT(CASE WHEN loan_status = 'Charged Off' THEN 1 ELSE NULL END) AS FLOAT) AS charged_off
+	FROM LoanData
+	GROUP BY home_ownership
+)
+SELECT 
+	home_ownership,
+	SUM(fully_paid)/SUM(fully_paid + charged_off) * 100 AS percent_fully_paid,
+	SUM(charged_off)/SUM(fully_paid + charged_off) * 100 AS percent_charged_off
+FROM home_status
+GROUP BY home_ownership
+ORDER BY home_ownership;
+```
+
+| home_ownership | percent_fully_paid | percent_charged_off  |
+|----------------|--------------------|----------------------|
+| Mortgage       | 86.3433274544386   | 13.6566725455614     |
+| None           | 100                | 0                    |
+| Other          | 81.25              | 18.75                |
+| Own            | 85.1515151515152   | 14.8484848484848     |
+| Rent           | 84.6650043365134   | 15.3349956634866     |
+
+For most home ownership categories, the percentage of loans that were "Fully Paid" is higher than the percentage that was "Charged Off." This indicates a general trend of better loan performance across various home ownership types. Futhermore, in different home ownership categories, the rate of both statuses 'Fully Paid' and 'Charged Off' are close to the base rate we have calculated before. 
+
+So, Home ownership status don't seem to have any impact on loan outcomes.
+
 **(4) Verification status vs Loan status**
+```sql
+WITH verified_status AS (
+	SELECT 
+		verification_status,
+		CAST(COUNT(CASE WHEN loan_status = 'Fully Paid' THEN 1 ELSE NULL END) AS FLOAT) AS fully_paid,
+		CAST(COUNT(CASE WHEN loan_status = 'Charged Off' THEN 1 ELSE NULL END) AS FLOAT) AS charged_off
+	FROM LoanData
+	GROUP BY verification_status
+)
+SELECT 
+	verification_status,
+	SUM(fully_paid)/SUM(fully_paid + charged_off) * 100 AS percent_fully_paid,
+	SUM(charged_off)/SUM(fully_paid + charged_off) * 100 AS percent_charged_off
+FROM verified_status
+GROUP BY verification_status
+ORDER BY verification_status;
+```
+
+| verification_status | percent_fully_paid | percent_charged_off  |
+|---------------------|--------------------|----------------------|
+| Not Verified        | 87.1887188718872   | 12.8112811281128     |
+| Source Verified     | 85.195530726257    | 14.804469273743      |
+| Verified            | 83.2322072810758   | 16.7677927189242     |
+
+Same at home ownership atribute, across different verification status categories, the proportions of both 'Fully Paid' and 'Charged Off' statuses closely align with the base rate.
+
+So, loan status appear to be unaffected by the verification status.
+
 **(5) issue year vs Loan status**
+```sql
+WITH year_status AS (
+	SELECT 
+		YEAR(issue_d) AS issue_year,
+		CAST(COUNT(CASE WHEN loan_status = 'Fully Paid' THEN 1 ELSE NULL END) AS FLOAT) AS fully_paid,
+		CAST(COUNT(CASE WHEN loan_status = 'Charged Off' THEN 1 ELSE NULL END) AS FLOAT) AS charged_off
+	FROM LoanData
+	GROUP BY YEAR(issue_d)
+)
+SELECT 
+	issue_year,
+	SUM(fully_paid)/SUM(fully_paid + charged_off) * 100 AS percent_fully_paid,
+	SUM(charged_off)/SUM(fully_paid + charged_off) * 100 AS percent_charged_off
+FROM year_status
+GROUP BY issue_year
+ORDER BY issue_year;
+```
+
+| issue_year | percent_fully_paid | percent_charged_off  |
+|------------|--------------------|----------------------|
+| 2007       | 82.0717131474104   | 17.9282868525896     |
+| 2008       | 84.3629343629344   | 15.6370656370656     |
+| 2009       | 87.430880476393    | 12.569119523607      |
+| 2010       | 87.1449665595414   | 12.8550334404586     |
+| 2011       | 84.142000292583    | 15.857999707417      |
+
+Same with the home and verification status, the issue year seems to not correlate with loan status.
+
+
 **(6) Purpose vs Loan status**
+```sql
+WITH purpose_status AS (
+	SELECT 
+		purpose,
+		CAST(COUNT(CASE WHEN loan_status = 'Fully Paid' THEN 1 ELSE NULL END) AS FLOAT) AS fully_paid,
+		CAST(COUNT(CASE WHEN loan_status = 'Charged Off' THEN 1 ELSE NULL END) AS FLOAT) AS charged_off
+	FROM LoanData
+	GROUP BY purpose
+)
+SELECT 
+	purpose,
+	SUM(fully_paid)/SUM(fully_paid + charged_off) * 100 AS percent_fully_paid,
+	SUM(charged_off)/SUM(fully_paid + charged_off) * 100 AS percent_charged_off
+FROM purpose_status
+GROUP BY purpose
+ORDER BY percent_fully_paid DESC;
+```
+
+| purpose            | percent_fully_paid | percent_charged_off  |
+|--------------------|--------------------|----------------------|
+| Major Purchase     | 89.6921641791045   | 10.3078358208955     |
+| Wedding            | 89.6216216216216   | 10.3783783783784     |
+| Car                | 89.3787575150301   | 10.6212424849699     |
+| Credit Card        | 89.2338308457711   | 10.7661691542289     |
+| Home Improvement   | 88.01393728223     | 11.98606271777       |
+| Vacation           | 85.8288770053476   | 14.1711229946524     |
+| Debt Consolidation | 84.6921243695616   | 15.3078756304384     |
+| Medical            | 84.5360824742268   | 15.4639175257732     |
+| Moving             | 83.9721254355401   | 16.0278745644599     |
+| House              | 83.9237057220708   | 16.0762942779292     |
+| Other              | 83.6708203530633   | 16.3291796469367     |
+| Educational        | 82.6086956521739   | 17.3913043478261     |
+| Renewable Energy   | 81.3725490196078   | 18.6274509803922     |
+| Small Business     | 72.9035938391329   | 27.0964061608671     |
+
+
+Different loan purposes show varying percentages of both "Fully Paid" and "Charged Off" outcomes. This indicates that loan purpose might play a role in influencing loan repayment success or default rates.
+
+Loan purposes such as "Car," "Credit Card," "Major Purchase," "Home Improvement" and "Wedding" exhibit relatively high percentages of "Fully Paid" outcomes. Borrowers with these loan purposes are more likely to fully repay their loans.
+
+Loan purposes such as "Small Business," "Renewable Energy," "Educational" and "House" show relatively high percentages of "Charged Off" outcomes. These categories might carry a higher risk of default.
+
+This variable could provide useful information in predicting loan status.
+
+
 **(7) State vs Loan status**
+```sql
+WITH addr_status AS (
+	SELECT 
+		addr_state,
+		CAST(COUNT(CASE WHEN loan_status = 'Fully Paid' THEN 1 ELSE NULL END) AS FLOAT) AS fully_paid,
+		CAST(COUNT(CASE WHEN loan_status = 'Charged Off' THEN 1 ELSE NULL END) AS FLOAT) AS charged_off
+	FROM LoanData
+	GROUP BY addr_state
+)
+SELECT 
+	addr_state,
+	SUM(fully_paid)/SUM(fully_paid + charged_off) * 100 AS percent_fully_paid,
+	SUM(charged_off)/SUM(fully_paid + charged_off) * 100 AS percent_charged_off
+FROM addr_status
+GROUP BY addr_state
+ORDER BY percent_fully_paid DESC;
+```
+
+| addr_state | percent_fully_paid | percent_charged_off |
+|------------|--------------------|---------------------|
+| IN         | 100                | 0                   |
+| ME         | 100                | 0                   |
+| IA         | 100                | 0                   |
+| WY         | 95                 | 5                   |
+| DC         | 92.822966507177    | 7.17703349282297    |
+| DE         | 90.1785714285714   | 9.82142857142857    |
+| MS         | 89.4736842105263   | 10.5263157894737    |
+| VT         | 88.6792452830189   | 11.3207547169811    |
+| AR         | 88.4615384615385   | 11.5384615384615    |
+| TN         | 88.2352941176471   | 11.7647058823529    |
+| TX         | 88.1732580037665   | 11.8267419962335    |
+| KS         | 87.7952755905512   | 12.2047244094488    |
+| WV         | 87.7906976744186   | 12.2093023255814    |
+| AL         | 87.7880184331797   | 12.2119815668203    |
+| PA         | 87.7732240437158   | 12.2267759562842    |
+| MA         | 87.7314814814815   | 12.2685185185185    |
+| LA         | 87.5878220140515   | 12.4121779859485    |
+| CO         | 87.2062663185379   | 12.7937336814621    |
+| VA         | 87.1345029239766   | 12.8654970760234    |
+| RI         | 87.1134020618557   | 12.8865979381443    |
+| CT         | 87.0523415977961   | 12.9476584022039    |
+| OH         | 86.9676320272572   | 13.0323679727428    |
+| MT         | 86.7469879518072   | 13.2530120481928    |
+| MN         | 86.7330016583748   | 13.2669983416252    |
+| IL         | 86.6621530128639   | 13.3378469871361    |
+| NY         | 86.6107654855288   | 13.3892345144712    |
+| OK         | 86.0627177700349   | 13.9372822299652    |
+| WI         | 85.876993166287    | 14.123006833713     |
+| SC         | 85.6209150326797   | 14.3790849673203    |
+| AZ         | 85.5791962174941   | 14.4208037825059    |
+| KY         | 85.5305466237942   | 14.4694533762058    |
+| MI         | 85.3693181818182   | 14.6306818181818    |
+| NH         | 84.9397590361446   | 15.0602409638554    |
+| NC         | 84.7797062750334   | 15.2202937249666    |
+| WA         | 84.4553243574051   | 15.5446756425949    |
+| NJ         | 84.4257703081232   | 15.5742296918768    |
+| MD         | 84.2311459353575   | 15.7688540646425    |
+| GA         | 84.1795437821928   | 15.8204562178072    |
+| UT         | 84.1269841269841   | 15.8730158730159    |
+| OR         | 83.8709677419355   | 16.1290322580645    |
+| CA         | 83.8087006626333   | 16.1912993373668    |
+| NM         | 83.6065573770492   | 16.3934426229508    |
+| ID         | 83.3333333333333   | 16.6666666666667    |
+| MO         | 83.1091180866966   | 16.8908819133034    |
+| HI         | 83.030303030303    | 16.969696969697     |
+| FL         | 81.9064748201439   | 18.0935251798561    |
+| AK         | 80.7692307692308   | 19.2307692307692    |
+| SD         | 80.327868852459    | 19.672131147541     |
+| NV         | 77.4058577405858   | 22.5941422594142    |
+| NE         | 40                 | 60                  |
 
 
+From the table above, we see some states, such as "IN," "ME," and "IA," show a 100% "Fully Paid" rate. Other states with higher percentages of "Charged Off" outcomes include "NE," "NV," "AK," and "FL." These states have a higher risk of loans not being repaidThis might be due to limited data or specific characteristics unique to those states or just because there are only a few loan applications come from these states.
+
+Many states exhibit percentages of "Fully Paid" and "Charged Off" outcomes around the 80-90% range. These states might represent more typical loan repayment patterns.
+
+"NE" (Nebraska) state stands out with a notably higher "Charged Off" rate of 60%, suggesting a significantly higher risk of default compared to other states.
+
+Different states show varying percentages of both "Fully Paid" and "Charged Off" outcomes, indicating that the location of borrowers might influence loan repayment success or default rates.
 
 
+## Conclusion
+
+In conclusion, our project aimed to identify the factors that distinguish between loans that are 'fully paid' and those that are 'charged off'. Through thorough analysis, we uncovered several key insights that shed light on the determinants of loan outcomes. We observed that various factors play significant roles in predicting whether a loan will be fully paid or charged off (see the table below).
 
 
+| Variables (Feature)                | Correlate with loan status |
+|------------------------------------|----------------------------|
+| Loan amount                        | :heavy_check_mark:         |
+| Interest rate                      | :heavy_check_mark:         |
+| Installment                        | :heavy_check_mark:         |
+| Annual income                      | :heavy_check_mark:         |
+| Debt-to-income ratio               | :heavy_check_mark:         |
+| Revolving line utilization rate    | :heavy_check_mark:         |
+| The total number of credit account | :heavy_check_mark:         |
+| Term                               | :heavy_check_mark:         |
+| Grade                              | :heavy_check_mark:         |
+| Home ownership                     | :x:                        |
+| Verification status                | :x:                        |
+| Issue year                         | :x:                        |
+| Purpose                            | :heavy_check_mark:         |
+| State                              | :heavy_check_mark:         |
 
+By understanding the interplay of these feature, Lending Club can make more informed decisions about loan approval. These insights contribute to a more comprehensive understanding of the factors that distinguish between 'fully paid' and 'charged off' loans, aiding in the development of effective lending strategies and risk management practices.
 
+For futher development of this project, I want to use the insights I found to make a model that can predict if a loan will be 'fully paid' or 'charged off'. I will apply data science technique to create a strong predictive model for loan status to improve lending decisions and manage risks better. 
+
+_(The author is still in the process of refining the data science workflow.)_

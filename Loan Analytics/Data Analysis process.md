@@ -1,7 +1,7 @@
 # DATA ANALYSIS PROCESS - LOAN DATASET
 
 ## INTRODUCTION
-This loan analysis project analyze various aspects related to loan data. This includes assessing borrower profiles, credit scores, financial histories, and repayment patterns. Through the application of data analysis techniques, the project aims to identify trends, risks, and opportunities within the lending portfolio. The ultimate goal is to enhance decision-making processes, optimize lending strategies, and ensure the overall health of the lending business.
+This loan analysis project analyze various aspects related to loan data. This includes assessing borrower profiles, credit scores, financial histories, and repayment patterns. Through the application of data analysis techniques, the project aims to identify trends, risks, and opportunities for the company. The ultimate goal is to enhance decision-making processes, optimize lending strategies, and ensure the overall health of the lending business.
 
 Download the SQL code file [here]()
 
@@ -443,7 +443,7 @@ ORDER BY num_loan_applications DESC;
 | MO              | 685                   | 1.73                       |
 | OR              | 450                   | 1.13                       |
 
-California has the highest number of loan applications, comprising about 17.88% of the total. The significant percentage suggests that a substantial number of loan applicants have temporary addresses in California. Texas follows with around 6.86% of the total loan applications.
+California has the highest number of loan applications, comprising about 17.88% of the total. Texas follows with around 6.86% of the total loan applications.
 
 **14. Debt-to-income ratio (dti ratio)**
 
@@ -467,7 +467,7 @@ GROUP BY CASE WHEN dti < 1 THEN 'dti < 1' ELSE 'dti > 1' END;
 
 A significant number of loan borrowers have a DTI ratio greater than 1. This observation is quite unusual and raises concerns about the accuracy of the data itself.
 
-The debt-to-income ratio (DTI ratio) is a financial metric that reflects the proportion of a borrower's debt to their income. A DTI ratio exceeding 1 implies that the borrower's debt obligations surpass their monthly income. From a logical standpoint, this scenario is highly improbable and defies financial prudence. Borrowers would typically struggle to meet their obligations if their debt surpasses their income.
+The debt-to-income ratio (DTI ratio) is a financial metric that reflects the proportion of a borrower's debt to their income. A DTI ratio exceeding 1 implies that the borrower's debt obligations surpass their income. From a logical standpoint, this scenario is highly improbable and defies financial prudence. Borrowers would typically struggle to meet their obligations if their debt surpasses their income.
 
 In conclusion, the presence of a substantial number of borrowers with a debt-to-income ratio greater than 1 is a clear red flag. Let's check the min, average and max of DTI ratio.
 
@@ -751,13 +751,7 @@ _Step 1: Define Hypotheses:_
   
 --- 
 
-_Step 2: Choose the Appropriate t-test:_
-
-Depending on whether the variances of the two samples are equal or not, we can choose between the equal variance t-test (also known as the pooled t-test) or the unequal variance t-test (also known as the Welch's t-test).
-
---- 
-
-_Step 3: Calculate the t-statistic and Degrees of Freedom:_
+_Step 2: Calculate the t-statistic and Degrees of Freedom:_
 
 
 ![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/c6e94c68-76d9-41bf-8477-eaf59e5d2645)
@@ -765,7 +759,7 @@ _Step 3: Calculate the t-statistic and Degrees of Freedom:_
 
 --- 
 
-_Step 4: Determine Critical Value:_
+_Step 3: Determine Critical Value:_
 
 The significance level is this analysis is 0.05.
 Look up the critical value from a [t-distribution table](https://www.sjsu.edu/faculty/gerstman/StatPrimer/t-table.pdf) based on the chosen significance level.
@@ -774,13 +768,13 @@ Due to the large number of records in our dataset, we can safely assume that the
 
 --- 
 
-_Step 5: Compare Results:_
+_Step 4: Compare Results:_
 
 Compare the calculated t-statistic to the critical value (1.96) If the calculated t-statistic is larger than 1.96, we can reject the null hypothesis
 
 --- 
 
-_Step 6: Interpret Results:_
+_Step 5: Interpret Results:_
 
 If we reject the null hypothesis, it indicates that there is a significant difference between the means of the two samples. This could imply that the variable we are seeing has an impact on the outcome of loan status.
 

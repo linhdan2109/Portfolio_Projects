@@ -895,16 +895,45 @@ For futher analysis, if we build a model to predict which loan applicants might 
 
 ### B2. Categorical  variables vs Loan status
 
+The categorical variables we need to analyze is:
+
+(1) Term
+(2) Grade
+(3) Home ownership
+(4) Verification status
+(5) issue year
+(6) Purpose
+(7) State
+
+When it comes to categorical variables, my approach involves comparing the distribution of different categories within each variable. The goal is to identify significant differences in distribution patterns between loans that are 'fully paid' and those that are 'charged off'. This analysis will provide valuable insights into how specific categories within these variables could be influential factors in determining loan status.
+
+**(1) Term vs Loan status**
+```sql
+SELECT 
+	loan_status,
+	COUNT(CASE WHEN term = 36 THEN 1 ELSE NULL END) AS count_loans_36_month,
+	COUNT(CASE WHEN term = 60 THEN 1 ELSE NULL END) AS count_loans_60_month
+FROM LoanData
+WHERE loan_status != 'Current'
+GROUP BY loan_status;
+```
+
+| loan_status | count_loans_36_month | count_loans_60_month  |
+|-------------|----------------------|-----------------------|
+| Fully Paid  | 25835                | 7081                  |
+| Charged Off | 3214                 | 2397                  |
 
 
 
 
+**(2) Grade vs Loan status**
 
 
-
-
-
-
+**(3) Home ownership vs Loan status**
+**(4) Verification status vs Loan status**
+**(5) issue year vs Loan status**
+**(6) Purpose vs Loan status**
+**(7) State vs Loan status**
 
 
 

@@ -60,6 +60,7 @@ ORDER BY term;
 | 36   | 29049                 | 73.23                      |
 | 60   | 10618                 | 26.77                      |
 
+72% of the observations in the dataset have 36-month loans and 27% have 60-month loans.
 
 **4. Number of loans by interest rate**
 ```sql
@@ -147,8 +148,6 @@ The data suggests that the majority of borrowers are paying between 100 USD - 30
 
 There are about 11% of loans with significantly higher installment amounts of others (600 - 1200).
 
-This information is crucial for understanding the affordability of loans for borrowers and for making informed decisions about lending terms and conditions.
-
 **6. Number of loans in each Grade**
 
 ```sql
@@ -215,7 +214,11 @@ FROM LoanData;
 |---------|------------------|---------|------------------|
 | 4000    | 68999.5237582878 | 6000000 | 63789.4654493437 |
 
-There is a significant disparity between the lowest income ($4,000 USD) and the highest income ($6,000,000 USD) in the Lending Club dataset, and the standard deviation of income is also quite high. This indicates (1) a wide range of income levels among borrowers, from those with low income to those with very high income or (2) There are outliners in annual income, These outliers can introduce noise to the analysis and lead to incorrect conclusions or (3) both (1) and (2).
+There is a significant disparity between the lowest income ($4,000 USD) and the highest income ($6,000,000 USD) in the Lending Club dataset, and the standard deviation of income is also quite high. This indicates:
+
+- (1) a wide range of income levels among borrowers, from those with low income to those with very high income or
+- (2) There are outliners in annual income, These outliers can introduce noise to the analysis and lead to incorrect conclusions or
+- (3) both (1) and (2).
 
 To understand more about the distribution of annual income, we can look at the percentiles of it.
 
@@ -325,7 +328,7 @@ ORDER BY issue_year;
 | 2010       | 11513                 | 29.02                     | 144.853253934496  |
 | 2011       | 21647                 | 54.57                     | 88.0222357335186  |
 
-Over the course of the years from 2007 to 2011, there was a pronounced and noteworthy upsurge in the quantity of loans being issued. This growth, however, exhibited a trend of diminishing percentage increases as the years progressed. While the total count of loans exhibited a substantial rise during this period, the rate of increase progressively declined over the years.
+Between 2007 and 2011, there was a significant increase in the number of loans issued. However, this growth slowed down as the years went by. While the total number of loans went up during this time, the rate of increase decreased over the years.
 
 **11. Number of loan applications by Loan status**
 
@@ -465,9 +468,9 @@ GROUP BY CASE WHEN dti < 1 THEN 'dti < 1' ELSE 'dti > 1' END;
 | dti > 1        | 38703         |
 | dti < 1        | 964           |
 
-A significant number of loan borrowers have a DTI ratio greater than 1. This observation is quite unusual and raises concerns about the accuracy of the data itself.
+The debt-to-income ratio (DTI ratio) is a financial metric that reflects the proportion of a borrower's debt to their income. A DTI ratio exceeding 1 implies that the borrower's debt obligations surpass their income. 
 
-The debt-to-income ratio (DTI ratio) is a financial metric that reflects the proportion of a borrower's debt to their income. A DTI ratio exceeding 1 implies that the borrower's debt obligations surpass their income. From a logical standpoint, this scenario is highly improbable and defies financial prudence. Borrowers would typically struggle to meet their obligations if their debt surpasses their income.
+From the table above, there are 38,703 borrowers in the dataset have DTI ratio > 1, that means 38,703 borrowers have more debt than their income. From a logical standpoint, this scenario is highly improbable and defies financial prudence. Borrowers would typically struggle to meet their obligations if their debt surpasses their income.
 
 In conclusion, the presence of a substantial number of borrowers with a debt-to-income ratio greater than 1 is a clear red flag. Let's check the min, average and max of DTI ratio.
 
@@ -746,7 +749,7 @@ The numerical variables we need to analyze is:
 _Step 1: Define Hypotheses:_
 
 - Null Hypothesis (H0): There is no significant difference between the means of the two status.
-- Alternative Hypothesis (H1): There is a significant difference between the means of the two status.\
+- Alternative Hypothesis (H1): There is a significant difference between the means of the two status.
   
 --- 
 
@@ -890,19 +893,19 @@ We can observe that the average interest rate for applications marked as 'charge
 
 I have used t-tests calculation for numeric variables to compare their means between different loan statuses. And in the end, we have found that there was significant differences in all numeric variables we analyzed between loans that are 'fully paid' and 'charged off'. 
 
-For futher analysis, if we build a model to predict which loan applicants might default, it would be a good idea to include all these numeric variables in the model.
+If we build a model to predict which loan applicants might default, it would be a good idea to include all these numeric variables in the model.
 
 ### B2. Categorical  variables vs Loan status
 
 The categorical variables we need to analyze is:
 
-(1) Term
-(2) Grade
-(3) Home ownership
-(4) Verification status
-(5) Issue year
-(6) Purpose
-(7) State
+- (1) Term
+- (2) Grade
+- (3) Home ownership
+- (4) Verification status
+- (5) Issue year
+- (6) Purpose
+- (7) State
 
 When it comes to categorical variables, my approach involves comparing the distribution of different categories within each variable. The goal is to identify significant differences in distribution patterns between loans that are 'fully paid' and those that are 'charged off'. This analysis will provide valuable insights into how specific categories within these variables could be influential factors in determining loan status.
 
@@ -1209,22 +1212,22 @@ Different states show varying percentages of both "Fully Paid" and "Charged Off"
 In conclusion, our project aimed to identify the factors that distinguish between loans that are 'fully paid' and those that are 'charged off'. Through thorough analysis, we uncovered several key insights that shed light on the determinants of loan outcomes. We observed that various factors play significant roles in predicting whether a loan will be fully paid or charged off (see the table below).
 
 
-| Variables (Feature)                | Correlate with loan status |
-|------------------------------------|----------------------------|
-| Loan amount                        | :heavy_check_mark:         |
-| Interest rate                      | :heavy_check_mark:         |
-| Installment                        | :heavy_check_mark:         |
-| Annual income                      | :heavy_check_mark:         |
-| Debt-to-income ratio               | :heavy_check_mark:         |
-| Revolving line utilization rate    | :heavy_check_mark:         |
-| The total number of credit account | :heavy_check_mark:         |
-| Term                               | :heavy_check_mark:         |
-| Grade                              | :heavy_check_mark:         |
-| Home ownership                     | :x:                        |
-| Verification status                | :x:                        |
-| Issue year                         | :x:                        |
-| Purpose                            | :heavy_check_mark:         |
-| State                              | :heavy_check_mark:         |
+| Variables (Feature)                | Correlate with loan status | How the variables correlate with loan status                   |
+|------------------------------------|----------------------------|----------------------------------------------------------------|
+| Loan amount                        | :heavy_check_mark:         | Larger loan amounts &rarr; Higher chance of default            |
+| Interest rate                      | :heavy_check_mark:         | Higher interest rate &rarr; Higher chance of default           |
+| Installment                        | :heavy_check_mark:         | Higher installment &rarr; Higher chance of default             |
+| Annual income                      | :heavy_check_mark:         | Lower annual income &rarr; Higher chance of default            |
+| Debt-to-income ratio               | :heavy_check_mark:         | Higher dti ratio &rarr; Higher chance of default               |
+| Revolving line utilization rate    | :heavy_check_mark:         | Higher revolving rate &rarr; Higher chance of default          |
+| The total number of credit account | :heavy_check_mark:         | Lower number of credit account &rarr; Higher chance of default |
+| Term                               | :heavy_check_mark:         | Longer term &rarr; Higher chance of default                    |
+| Grade                              | :heavy_check_mark:         | Lower grade &rarr; Higher chance of default                    |
+| Home ownership                     | :x:                        |                                                                |
+| Verification status                | :x:                        |                                                                |
+| Issue year                         | :x:                        |                                                                |
+| Purpose                            | :heavy_check_mark:         | Different purpose, different chance of default                 |
+| State                              | :heavy_check_mark:         | Different state, different chance of default                   |
 
 By understanding the interplay of these feature, Lending Club can make more informed decisions about loan approval. These insights contribute to a more comprehensive understanding of the factors that distinguish between 'fully paid' and 'charged off' loans, aiding in the development of effective lending strategies and risk management practices.
 

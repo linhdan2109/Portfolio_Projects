@@ -752,6 +752,7 @@ Depending on whether the variances of the two samples are equal or not, we can c
 
 _Step 3: Calculate the t-statistic and Degrees of Freedom:_
 
+
 **For the equal variance t-test (the pooled t-test):**
 
 ![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/43173654-c484-49cc-95ef-756655581bdb)
@@ -768,8 +769,10 @@ n1 and n2 = Number of records in each sample set
 
 Where:
 
-n1 and n2=Number of records in each sample set
+n1 and n2 = Number of records in each sample set
 ​
+
+
 **For the unequal variance t-test (the Welch's t-test)**
 
 ![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/f8e2db97-4747-4468-ad8d-4e1cd52de347)

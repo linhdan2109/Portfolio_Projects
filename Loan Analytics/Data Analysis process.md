@@ -760,45 +760,8 @@ Depending on whether the variances of the two samples are equal or not, we can c
 _Step 3: Calculate the t-statistic and Degrees of Freedom:_
 
 
-**For the equal variance t-test (the pooled t-test):**
+![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/c6e94c68-76d9-41bf-8477-eaf59e5d2645)
 
-![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/43173654-c484-49cc-95ef-756655581bdb)
-
-Where: 
-
-mean1 and mean2 = Average values of each of the sample sets
-
-var1 and var2 = Variance of each of the sample sets
-
-n1 and n2 = Number of records in each sample set
-​
-![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/3a7afdcf-977c-4fc1-844d-b04b1a3fc63d)
-
-Where:
-
-n1 and n2 = Number of records in each sample set
-​
-
-
-**For the unequal variance t-test (the Welch's t-test)**
-
-![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/f8e2db97-4747-4468-ad8d-4e1cd52de347)
-
-Where:
-
-mean1 and mean2 = Average values of each of the sample sets
-
-var1 and var2 = Variance of each of the sample sets
-
-n1 and n2 = Number of records in each sample set
-​
-![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/4a9ef247-6a03-421f-9c35-9d690fdad132)
-
-Where: 
-
-var1 and var2 = Variance of each of the sample sets 
-
-n1 and n2 = Number of records in each sample set ​
 
 --- 
 
@@ -853,13 +816,12 @@ ORDER BY loan_status DESC;
 
 
 
-As the variances of loan amount of the two status are not equal, we will use the unequal variance t-test (also known as the Welch's t-test).
-
 The t-value are calculated as followed:
 
-![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/e7d96de4-98e3-4363-a195-ca5e519d461d)
+![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/df6b430f-b99d-495a-aa60-33ac50439660)
 
-Compare the t-value with the critical value, we have: 10.87 > 1.96 (t-value > critical value)
+
+Compare the t-value with the critical value, we have: 11.79 > 1.96 (t-value > critical value)
 
 &rarr; Reject the null Hypothesis 
 
@@ -896,19 +858,20 @@ ORDER BY loan_status DESC;
 | Charged Off | 0.0542  | 0.1128 | 0.138133166993404 | 0.1357 | 0.164  | 0.244   | 0.0365397137929156 | 5611        |
 
 
-Instead of calculating manually, we can use a [t-test calculator](https://www.statology.org/welchs-t-test-calculator/) to compute the t-value. This tool simplifies the process and ensures accurate results.
+Instead of calculating manually, we can use a [t-test calculator](https://www.inchcalculator.com/t-test-calculator/) to compute the t-value. This tool simplifies the process and ensures accurate results.
 
 Another way is to use statistical software such as R studio, SPSS Eview to do t-test, or if you know how to code, you also can use programing language such as R or Python to calculate t-value.
 
-Now let's enter our data in to [t-test calculator](https://www.statology.org/welchs-t-test-calculator/) to compute the t-value to see if there are any different in interest rate between the two status.
+Now let's enter our data in to [t-test calculator](https://www.inchcalculator.com/t-test-calculator/) to compute the t-value to see if there are any different in interest rate between the two status.
 
-![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/0d2593df-a381-472c-a0f7-d4cfff9c3225)
+![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/88c81446-65cb-4a97-ad28-1b95239104dd)
 
 Here is the result:
 
-![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/0b1059a7-213b-4fcb-b6f1-ef67c102a28b)
+![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/cab6858c-80c0-42b3-b2fa-0daa50b20a01)
 
-Compare the t-value with the critical value, we have: 41.91 > 1.96 (t-value > critical value) 
+
+Compare the t-value with the critical value, we have: 42.37 > 1.96 (t-value > critical value) 
 
 Or we can use the p-value, if the p-value is smaller than the significant level (0.05) we can reject the null hypothesis. We have p-value is equal to 0.000000 (< 0.05)
 
@@ -918,12 +881,23 @@ Or we can use the p-value, if the p-value is smaller than the significant level 
 
 We can observe that the average interest rate for applications marked as 'charged off' is higher compared to those labeled as 'fully paid.' (13% vs 11%). This suggests a potential connection between larger interest rate and a higher chance of default.
 
+**Calculate the t-value for other numerical variables in the dataset**
 
-- (3) Installment
-- (4) Annual income
-- (5) Debt-to-income ratio
-- (6) Revolving line utilization rate
-- (7) The total number of credit account
+| Variable                           | Average (Fully Paid) | SD (Fully Paid) | Sample size (Fully Paid) | Average (Charged Off) | SD (Charged Off) | Sample size (Charged Off) | t-value | Reject Hypothesis  | Interpretation                                                                              |
+|------------------------------------|----------------------|-----------------|--------------------------|-----------------------|------------------|---------------------------|---------|--------------------|---------------------------------------------------------------------------------------------|
+| Installment                        | 320.3                | 207.09          | 32916                    | 336.64                | 217.08           | 5611                      | 5.42    | :heavy_check_mark: | There are different between installment of the two status 'Fully Paid' and 'Charged Off'    |
+| Annual income                      | 69882.63             | 66550.77        | 32916                    | 62512.27              | 47809.5          | 5611                      | 7.95    | :heavy_check_mark: | There are different between annual income of the two status 'Fully Paid' and 'Charged Off'  |
+| Debt-to-income ratio               | 13.15                | 6.68            | 32916                    | 14                    | 6.58             | 5611                      | 8.83    | :heavy_check_mark: | There are different between dti of the two status 'Fully Paid' and 'Charged Off'            |
+| Revolving line utilization rate    | 0.48                 | 0.28            | 32916                    | 0.56                  | 0.28             | 5611                      | 19.78   | :heavy_check_mark: | There are different between revolving rate of the two status 'Fully Paid' and 'Charged Off' |
+| The total number of credit account | 22                   | 11.42           | 32916                    | 21                    | 11.45            | 5611                      | 6.06    | :heavy_check_mark: | There are different between total accounts of the two status 'Fully Paid' and 'Charged Off' |
+
+
+
+**In general, in every numeric variable we analyze, I observe there are differences between the two groups: "Charged Off" and "Fully Paid".**
+
+I have used t-tests calculation for numeric variables to compare their means between different loan statuses. And in the end, we have found that there was significant differences in all numeric variables we analyzed between loans that are 'fully paid' and 'charged off'. 
+
+For futher analysis, if we build a model to predict which loan applicants might default, it would be a good idea to include all these numeric variables in the model.
 
 ### B2. Categorical  variables vs Loan status
 

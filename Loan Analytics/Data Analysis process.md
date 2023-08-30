@@ -396,7 +396,7 @@ ORDER BY num_loan_applications DESC;
 | Educational        | 322                   | 0.81                       |
 | Renewable Energy   | 103                   | 0.26                       |
 
-This purpose has the highest number of loan applications, accounting for approximately 46.96% of the total. Debt consolidation loans are typically sought to merge multiple debts into a single loan for easier management. The credit card purpose category has the second-highest number of loan applications, making up around 12.93% of the total.
+'Debt Consolidation' purpose has the highest number of loan applications, accounting for approximately 46.96% of the total. Debt consolidation loans are typically sought to merge multiple debts into a single loan for easier management. The credit card purpose category has the second-highest number of loan applications, making up around 12.93% of the total.
 
 **13. Top 10 states have the most loan applications**
 

@@ -1204,7 +1204,7 @@ Many states exhibit percentages of "Fully Paid" and "Charged Off" outcomes aroun
 Different states show varying percentages of both "Fully Paid" and "Charged Off" outcomes, indicating that the location of borrowers might influence loan repayment success or default rates.
 
 
-## Conclusion
+## CONCLUSION
 
 In conclusion, our project aimed to identify the factors that distinguish between loans that are 'fully paid' and those that are 'charged off'. Through thorough analysis, we uncovered several key insights that shed light on the determinants of loan outcomes. We observed that various factors play significant roles in predicting whether a loan will be fully paid or charged off (see the table below).
 

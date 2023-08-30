@@ -739,16 +739,23 @@ The numerical variables we need to analyze is:
 - (6) Revolving line utilization rate
 - (7) The total number of credit account
 
+
 **Steps to do a t-test:**
+
+--- 
 
 _Step 1: Define Hypotheses:_
 
 - Null Hypothesis (H0): There is no significant difference between the means of the two status.
-- Alternative Hypothesis (H1): There is a significant difference between the means of the two status.
+- Alternative Hypothesis (H1): There is a significant difference between the means of the two status.\
+  
+--- 
 
 _Step 2: Choose the Appropriate t-test:_
 
 Depending on whether the variances of the two samples are equal or not, we can choose between the equal variance t-test (also known as the pooled t-test) or the unequal variance t-test (also known as the Welch's t-test).
+
+--- 
 
 _Step 3: Calculate the t-statistic and Degrees of Freedom:_
 
@@ -793,6 +800,7 @@ var1 and var2 = Variance of each of the sample sets
 
 n1 and n2 = Number of records in each sample set ​
 
+--- 
 
 _Step 4: Determine Critical Value:_
 
@@ -801,14 +809,19 @@ Look up the critical value from a [t-distribution table](https://www.sjsu.edu/fa
 
 Due to the large number of records in our dataset, we can safely assume that the degrees of freedom (df) approach infinity. As a result, the critical t-value for a significance level of 0.05 is approximately 1.96.
 
+--- 
+
 _Step 5: Compare Results:_
 
 Compare the calculated t-statistic to the critical value (1.96) If the calculated t-statistic is larger than 1.96, we can reject the null hypothesis
 
+--- 
 
 _Step 6: Interpret Results:_
 
 If we reject the null hypothesis, it indicates that there is a significant difference between the means of the two samples. This could imply that the variable we are seeing has an impact on the outcome of loan status.
+
+--- 
 
 **(1) Loan amount vs Loan status**
 ```sql

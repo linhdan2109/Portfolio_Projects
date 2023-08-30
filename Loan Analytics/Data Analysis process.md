@@ -699,13 +699,14 @@ GROUP BY YEAR(issue_d)
 ORDER BY YEAR(issue_d);
 ```
 
-| issue_year | fully_paid   | charged_off | current_loan |
-|------------|--------------|-------------|--------------|
-| 2007       | 1931151.63   | 281540.03   | 0            |
-| 2008       | 12698676.53  | 1335765.68  | 0            |
-| 2009       | 46928428.71  | 3339311.94  | 0            |
-| 2010       | 121337767.31 | 9085461.1   | 0            |
-| 2011       | 236235319.39 | 24396602.55 | 24912278.14  |
+| issue_year | fully_paid   | charged_off | current_loan | fully_paid_rate  |
+|------------|--------------|-------------|--------------|------------------|
+| 2007       | 1931151.63   | 281540.03   | 0            | 0.87             |
+| 2008       | 12698676.53  | 1335765.68  | 0            | 0.9              |
+| 2009       | 46928428.71  | 3339311.94  | 0            | 0.93             |
+| 2010       | 121337767.31 | 9085461.1   | 0            | 0.93             |
+| 2011       | 236235319.39 | 24396602.55 | 24912278.14  | 0.83             |
+
 
 
 The table showcases the trends of fully paid and charged off amounts, indicating how these figures have changed and evolved over the specified period. Additionally, the introduction of the "current_loan" category in 2011 reflects loans that are currently active. 

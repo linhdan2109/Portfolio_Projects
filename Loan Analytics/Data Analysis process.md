@@ -215,7 +215,7 @@ FROM LoanData;
 |---------|------------------|---------|------------------|
 | 4000    | 68999.5237582878 | 6000000 | 63789.4654493437 |
 
-There is a significant disparity between the lowest income ($4,000 USD) and the highest income ($6,000,000 USD) in the Lending Club dataset, and the standard deviation of income is also quite high. This indicates (1) a wide range of income levels among borrowers, from those with low income to those with very high income or (2) There are outliners in annual income, These outliers can introduce noise to the analysis and lead to incorrect conclusions or (3) both.
+There is a significant disparity between the lowest income ($4,000 USD) and the highest income ($6,000,000 USD) in the Lending Club dataset, and the standard deviation of income is also quite high. This indicates (1) a wide range of income levels among borrowers, from those with low income to those with very high income or (2) There are outliners in annual income, These outliers can introduce noise to the analysis and lead to incorrect conclusions or (3) both (1) and (2).
 
 To understand more about the distribution of annual income, we can look at the percentiles of it.
 

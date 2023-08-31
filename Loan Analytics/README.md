@@ -35,4 +35,12 @@ By crafting intricate SQL queries, I can delve into various aspects of the loan 
 
 You can see my Data Analysis process [here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Loan%20Analytics/Data%20Analysis%20process.md)
 
+## Data visualization
+
+Use Power BI to develop a dashboard for the project.
+
+![image](https://github.com/linhdan2109/Portfolio_Projects/assets/85982220/98ddc8af-a3e2-45ce-8567-4b5ef7d96328)
+
+Get the dashboard in Power BI [here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Loan%20Analytics/Loan%20Dashboard.pbix)
+
 ## Data Modelng

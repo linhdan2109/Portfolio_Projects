@@ -29,7 +29,7 @@ You can see my Jupyter Notebook containing cleaning steps [here](https://nbviewe
 And the clean dataset is [here](https://github.com/linhdan2109/Portfolio_Projects/blob/main/Loan%20Analytics/Clean%20loandata.csv)
 
 ## Data Analysis
-I will use SQl to perform loan data analysis. SQL is a versatile and efficient tool that empowers me to explore the data, extract valuable insights, and derive meaningful conclusions that will drive informed decision-making processes.
+I will use SQL to perform loan data analysis. SQL is a versatile and efficient tool that empowers me to explore the data, extract valuable insights, and derive meaningful conclusions that will drive informed decision-making processes.
 
 By crafting intricate SQL queries, I can delve into various aspects of the loan data, including borrower demographics, loan amounts, interest rates, repayment history, and more. Harnessing SQL's capabilities for loan data analysis will allow me to unlock the true potential of the data, providing actionable insights that drive smarter lending practices and contribute to the overall success of the lending company.
 
